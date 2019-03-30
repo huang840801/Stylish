@@ -1,4 +1,4 @@
-package com.guanhong.stylish
+package com.guanhong.stylish.ui.main
 
 interface MainContract {
 

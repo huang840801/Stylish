@@ -1,6 +1,6 @@
 package com.guanhong.stylish.di
 
-import com.guanhong.stylish.MainActivity
+import com.guanhong.stylish.ui.main.MainActivity
 import dagger.Component
 
 @Component
