@@ -36,12 +36,23 @@
     </android.support.v7.widget.Toolbar>
 
     <View
+        android:id="@+id/topSeparationLine"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/gray"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomSeparationLine"
+        app:layout_constraintTop_toBottomOf="@+id/topSeparationLine">
+
+    </FrameLayout>
+
     <View
+        android:id="@+id/bottomSeparationLine"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/gray"
@@ -51,8 +62,8 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@color/black"
         app:itemBackground="@color/white"
+        app:itemIconTint="@color/black"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

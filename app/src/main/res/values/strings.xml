@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Stylish</string>
+    <string name="stylish">Stylish</string>
+    <string name="catalog">型錄</string>
+    <string name="cart">購物車</string>
+    <string name="profile">個人</string>
 </resources>
