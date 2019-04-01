@@ -13,7 +13,7 @@ class Product {
     var place = ""
     var note = ""
     var story = ""
-    var colors = Color()
+    var colors = ArrayList<Color>()
     var sizes = ArrayList<String>()
     var variants = ArrayDeque<Variant>()
     var main_image = ""

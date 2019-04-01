@@ -13,6 +13,7 @@ import android.support.design.widget.BottomNavigationView
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
