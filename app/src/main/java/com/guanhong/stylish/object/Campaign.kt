@@ -1,4 +1,4 @@
-package com.guanhong.stylish.model
+package com.guanhong.stylish.`object`
 
 class Campaign {
     var product_id = 0

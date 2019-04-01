@@ -1,4 +1,4 @@
-package com.guanhong.stylish.model
+package com.guanhong.stylish.`object`
 
 class Variant {
     var color_code = ""

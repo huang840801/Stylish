@@ -1,4 +1,4 @@
-package com.guanhong.stylish.model
+package com.guanhong.stylish.`object`
 
 import java.util.*
 import kotlin.collections.ArrayList
