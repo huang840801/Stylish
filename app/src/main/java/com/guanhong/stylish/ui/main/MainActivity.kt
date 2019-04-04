@@ -3,25 +3,36 @@ package com.guanhong.stylish.ui.main
 import android.os.Bundle
 import com.guanhong.stylish.BaseActivity
 import com.guanhong.stylish.R
-import com.guanhong.stylish.di.DaggerMainActivityComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 import android.view.LayoutInflater
 import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.view.MenuItem
 import android.view.View
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.notification_badge.view.*
 
-class MainActivity : BaseActivity(), MainContract.View, BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity
+    : BaseActivity(),
+        MainContract.View,
+        BottomNavigationView.OnNavigationItemSelectedListener,
+HasSupportFragmentInjector{
 
     @Inject
     lateinit var presenter: MainPresenter
+
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var catalogFragment: CatalogFragment
@@ -41,9 +52,11 @@ class MainActivity : BaseActivity(), MainContract.View, BottomNavigationView.OnN
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerMainActivityComponent.create().inject(this)
+
+        presenter.test()
 
         toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
         bottomNavigation.setOnNavigationItemSelectedListener(this)
@@ -57,18 +70,22 @@ class MainActivity : BaseActivity(), MainContract.View, BottomNavigationView.OnN
         setToolbarTitle("Stylish")
     }
 
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return fragmentInjector
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId){
-            R.id.action_home ->{
+        when (item.itemId) {
+            R.id.action_home -> {
                 transToFragment(HOME)
                 setToolbarTitle(getString(R.string.stylish))
             }
-            R.id.action_catalog ->{
+            R.id.action_catalog -> {
                 transToFragment(CATALOG)
                 setToolbarTitle(getString(R.string.catalog))
             }
-            R.id.action_cart ->{
+            R.id.action_cart -> {
                 transToFragment(CART)
                 setToolbarTitle(getString(R.string.cart))
             }

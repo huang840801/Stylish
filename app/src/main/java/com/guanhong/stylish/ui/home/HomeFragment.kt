@@ -1,5 +1,6 @@
 package com.guanhong.stylish.ui.home
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,17 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.R
-import com.guanhong.stylish.di.DaggerHomeFragmentComponent
-import com.guanhong.stylish.di.HomeFragmentPresenterModule
+import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
+import okhttp3.*
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), HomeFragmentContract.View{
+class HomeFragment : Fragment(), HomeFragmentContract.View {
 
     @Inject
     lateinit var presenter: HomeFragmentPresenter
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    override fun onAttach(activity: Activity?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(activity)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,10 +30,10 @@ class HomeFragment : Fragment(), HomeFragmentContract.View{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        presenter.getMarketingHots()
     }
 
-    fun newInstance() : HomeFragment{
+    fun newInstance(): HomeFragment {
         return HomeFragment()
     }
 }
