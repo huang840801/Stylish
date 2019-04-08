@@ -1,21 +1,22 @@
 package com.guanhong.stylish.`object`
 
+import com.google.gson.annotations.SerializedName
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Product {
-    var id = 0
-    var title = ""
-    var description = ""
-    var price = 0
-    var texture = ""
-    var wash = ""
-    var place = ""
-    var note = ""
-    var story = ""
-    var colors = ArrayList<Color>()
-    var sizes = ArrayList<String>()
-    var variants = ArrayDeque<Variant>()
-    var main_image = ""
-    var images = ArrayList<String>()
-}
+data class Product(
+        @SerializedName("id")var id: String,
+        @SerializedName("title") var title: String,
+        @SerializedName("description")  var description: String,
+        @SerializedName("price")  var price: Int,
+        @SerializedName("texture") var texture: String,
+        @SerializedName("wash") var wash: String,
+        @SerializedName("place") var place: String,
+        @SerializedName("note") var note: String,
+        @SerializedName("story") var story: String,
+        @SerializedName("colors")var colors: List<Color> = listOf(),
+        @SerializedName("sizes") var sizes: List<String> = listOf(),
+        @SerializedName("variants") var variants: List<Variant> = listOf(),
+        @SerializedName("main_image") var main_image: String,
+        @SerializedName("images") var images: List<String> = listOf()
+)

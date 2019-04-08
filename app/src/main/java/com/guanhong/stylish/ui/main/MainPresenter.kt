@@ -6,6 +6,5 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(private val view: MainContract.View)
     : MainContract.Presenter {
     fun test() {
-        Log.d("Huang", "sssssssssss")
     }
 }

@@ -1,7 +1,9 @@
 package com.guanhong.stylish.`object`
 
-class Variant {
-    var color_code = ""
-    var size = ""
-    var stock = 0
-}
+import com.google.gson.annotations.SerializedName
+
+class Variant(
+        @SerializedName("color_code")  var color_code: String,
+        @SerializedName("size")  var size: String,
+        @SerializedName("stock")  var stock: Int
+)
