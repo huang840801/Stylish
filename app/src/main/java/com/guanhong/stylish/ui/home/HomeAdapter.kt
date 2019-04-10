@@ -18,6 +18,7 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         const val FULL_VIEW_TYPE = 2
         const val NORMAL_TYPE = 3
     }
+    
 
     override fun getItemCount(): Int {
         Log.d("Huang", "   productList.count() = " + totalItemCount)
