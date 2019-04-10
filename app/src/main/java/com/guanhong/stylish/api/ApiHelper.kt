@@ -7,13 +7,12 @@ import com.guanhong.stylish.util.ApiConfig.Companion.MARKETING_HOTS_API
 import okhttp3.*
 import java.io.IOException
 
-class ApiHelper(private val marketingHotsCallback: DataResourceCallback.getMarketingHots) {
+class ApiHelper(private val marketingHotsCallback: DataResourceCallback.GetMarketingHots) {
 
     private val client = OkHttpClient()
 
     fun getMarketingHots() {
         val request = Request.Builder().url(MARKETING_HOTS_API).build()
-//        var hotsResponse: Data? = null
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call?, response: Response) {
 
@@ -21,9 +20,7 @@ class ApiHelper(private val marketingHotsCallback: DataResourceCallback.getMarke
                     val responseBody = response.body()!!.string()
                     val gSon = Gson()
                     val getJason = gSon.fromJson<Data>(responseBody, Data::class.java)
-//                    hotsResponse = getJason
-                    Log.d("Huang", " success : " + getJason.data[0].title)
-                    marketingHotsCallback.onSuccess(getJason.data[0].title)
+                    marketingHotsCallback.onSuccess(getJason.data)
                 }
             }
 
@@ -31,6 +28,5 @@ class ApiHelper(private val marketingHotsCallback: DataResourceCallback.getMarke
                 Log.d("Huang", " GetMarketingHots Fail")
             }
         })
-//        return hotsResponse!!
     }
 }

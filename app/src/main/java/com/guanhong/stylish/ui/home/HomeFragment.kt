@@ -4,13 +4,11 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Data
-import com.guanhong.stylish.api.DataResourceCallback
+import com.guanhong.stylish.`object`.Hots
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -41,9 +39,11 @@ class HomeFragment : Fragment(), HomeFragmentContract.View {
         presenter.getMarketingHots()
     }
 
-    override fun onBindMarketingHots(hotsResponse: Data) {
-        title.text = hotsResponse.data[0].title
-        adapter.onBindMarketingHots(hotsResponse.data[0].products)
+    override fun onBindMarketingHots(hotsList: List<Hots>) {
+
+       activity!!.runOnUiThread {
+           adapter.onBindMarketingHots(hotsList)
+       }
     }
 
     fun newInstance(): HomeFragment {

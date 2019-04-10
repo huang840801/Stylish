@@ -1,10 +1,10 @@
 package com.guanhong.stylish.api
 
+import com.guanhong.stylish.`object`.Hots
+
 interface DataResourceCallback {
 
-    interface getMarketingHots{
-        fun onSuccess(s:String)
-
-        fun onFail()
+    interface GetMarketingHots{
+        fun onSuccess(hotsList: List<Hots>)
     }
 }

@@ -1,11 +1,10 @@
 package com.guanhong.stylish.ui.home
 
-import com.guanhong.stylish.`object`.Data
-import com.guanhong.stylish.api.DataResourceCallback
+import com.guanhong.stylish.`object`.Hots
 
 interface HomeFragmentContract {
     interface View{
-      fun  onBindMarketingHots(hotsResponse: Data)
+      fun  onBindMarketingHots(hotsList: List<Hots>)
     }
     interface Presenter{
         fun getMarketingHots()

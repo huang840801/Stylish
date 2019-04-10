@@ -5,5 +5,5 @@ import com.guanhong.stylish.api.DataResourceCallback
 import okhttp3.Response
 
 interface IHotsRepository {
-    fun getMarketingHots(marketingHotsCallback: DataResourceCallback.getMarketingHots)
+    fun getMarketingHots(marketingHotsCallback: DataResourceCallback.GetMarketingHots)
 }
