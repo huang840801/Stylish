@@ -14,6 +14,7 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         const val MAIN_TYPE = 1
         const val SECONDARY_TYPE = 2
     }
+    
 
     override fun getItemCount(): Int {
         return productList.count()
