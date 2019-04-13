@@ -5,10 +5,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.guanhong.stylish.R
 import com.guanhong.stylish.`object`.Product
 
-class HomeNormalHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class HomeNormalHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private lateinit var context: Context
 
@@ -22,12 +23,23 @@ class HomeNormalHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     fun setResource(context: Context): RecyclerView.ViewHolder {
 
         this.context = context
-        return  this
+        return this
     }
 
     fun setResult(product: Product) {
 
         title.text = product.title
         subTitle.text = product.description
+
+        setImage(leftImage, product.images[0])
+        setImage(topImage, product.images[1])
+        setImage(bottomImage, product.images[2])
+        setImage(rightImage, product.images[3])
+    }
+
+    private fun setImage(image: ImageView, url: String) {
+        Glide.with(context)
+                .load(url)
+                .into(image)
     }
 }

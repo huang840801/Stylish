@@ -5,36 +5,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Hots
-
+import com.guanhong.stylish.`object`.Product
 class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var hotsList: List<Hots> = listOf()
-    private val titlePositionList = ArrayList<Int>()
-    private var totalItemCount = 0
+    private var hotList: List<Any> = listOf()
 
     companion object {
         const val TITLE_TYPE = 1
         const val FULL_VIEW_TYPE = 2
         const val NORMAL_TYPE = 3
     }
-    
 
-    override fun getItemCount(): Int {
-        Log.d("Huang", "   productList.count() = " + totalItemCount)
-        return totalItemCount
-    }
+    override fun getItemCount(): Int = hotList.count()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
-        titlePositionList.add(0)
-        hotsList.forEach {
-            titlePositionList.add(it.products.count() + titlePositionList.last())
-        }
-
-        titlePositionList.forEach {
-            Log.d("Huang", "  deded" + it)
-        }
 
         when (viewType) {
             TITLE_TYPE -> {
@@ -57,45 +41,30 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        var thisPositionIndex = 0
-
-        titlePositionList.forEach {
-
-            if (it > thisPositionIndex) {
-                thisPositionIndex = titlePositionList.indexOf(it)
-                return@forEach
-            }
-        }
-
-        Log.d("Huang", " index = " + thisPositionIndex)
         when (holder) {
+            is HomeTitleHolder -> {
+                holder.setResult(hotList[position] as String)
+            }
             is HomeFullViewHolder -> {
-                holder.setResult(hotsList[thisPositionIndex].title)
+                holder.setResult(hotList[position] as Product)
             }
             is HomeNormalHolder -> {
-                holder.setResult(hotsList[thisPositionIndex].products[0])
+                holder.setResult(hotList[position] as Product)
             }
         }
     }
 
     override fun getItemViewType(position: Int): Int {
 
-        if (position == 1) {
-            return FULL_VIEW_TYPE
-        }
-        return if (titlePositionList.any { it == position }) {
-            TITLE_TYPE
-        } else {
-            NORMAL_TYPE
+        return when {
+            (hotList[position] is String) -> TITLE_TYPE
+            (hotList[position] is Product && position == 1) -> FULL_VIEW_TYPE
+            else -> NORMAL_TYPE
         }
     }
 
-    fun onBindMarketingHots(hotsList: List<Hots>) {
-        this.hotsList = hotsList
-
-        hotsList.forEach {
-            totalItemCount += it.products.count()
-        }
+    fun onBindMarketingHots(hotList: ArrayList<Any>) {
+        this.hotList = hotList
         notifyDataSetChanged()
     }
 }

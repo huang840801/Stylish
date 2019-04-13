@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Hots
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -39,10 +38,10 @@ class HomeFragment : Fragment(), HomeFragmentContract.View {
         presenter.getMarketingHots()
     }
 
-    override fun onBindMarketingHots(hotsList: List<Hots>) {
+    override fun onBindMarketingHots(hotList: ArrayList<Any>) {
 
        activity!!.runOnUiThread {
-           adapter.onBindMarketingHots(hotsList)
+           adapter.onBindMarketingHots(hotList)
        }
     }
 

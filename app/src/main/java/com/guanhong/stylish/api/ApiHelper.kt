@@ -20,7 +20,8 @@ class ApiHelper(private val marketingHotsCallback: DataResourceCallback.GetMarke
                     val responseBody = response.body()!!.string()
                     val gSon = Gson()
                     val getJason = gSon.fromJson<Data>(responseBody, Data::class.java)
-                    marketingHotsCallback.onSuccess(getJason.data)
+                    Log.d("Huang", " callback ")
+                    marketingHotsCallback.onSuccess(getJason)
                 }
             }
 
