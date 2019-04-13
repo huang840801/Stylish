@@ -67,7 +67,7 @@ HasSupportFragmentInjector{
         profileFragment = ProfileFragment().newInstance()
 
         transToFragment(HOME)
-        setToolbarTitle("Stylish")
+        toolbarLogo.show()
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
@@ -79,26 +79,31 @@ HasSupportFragmentInjector{
         when (item.itemId) {
             R.id.action_home -> {
                 transToFragment(HOME)
-                setToolbarTitle(getString(R.string.stylish))
+                toolbarTitle.hide()
+                toolbarLogo.show()
             }
             R.id.action_catalog -> {
                 transToFragment(CATALOG)
                 setToolbarTitle(getString(R.string.catalog))
+                toolbarLogo.hide()
             }
             R.id.action_cart -> {
                 transToFragment(CART)
                 setToolbarTitle(getString(R.string.cart))
+                toolbarLogo.hide()
             }
 
             R.id.action_profile -> {
                 transToFragment(PROFILE)
                 setToolbarTitle(getString(R.string.profile))
+                toolbarLogo.hide()
             }
         }
         return true
     }
 
     private fun setToolbarTitle(title: String) {
+        toolbarTitle.show()
         toolbarTitle.text = title
     }
 

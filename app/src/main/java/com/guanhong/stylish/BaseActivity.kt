@@ -42,4 +42,11 @@ open class BaseActivity : AppCompatActivity() {
         }
         return result
     }
+
+    fun View.show(){
+        visibility = View.VISIBLE
+    }
+    fun View.hide(){
+        visibility = View.GONE
+    }
 }

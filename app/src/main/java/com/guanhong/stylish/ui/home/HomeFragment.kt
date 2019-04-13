@@ -7,12 +7,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), HomeFragmentContract.View {
+class HomeFragment : BaseFragment(), HomeFragmentContract.View {
 
     @Inject
     lateinit var presenter: HomeFragmentPresenter
