@@ -10,6 +10,7 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import com.guanhong.stylish.ui.cart.CartFragment
@@ -119,8 +120,12 @@ HasSupportFragmentInjector{
                 fragmentManager.hide(profileFragment)
 
                 if (homeFragment.isAdded) {
+                    Log.d("Huang", " home isAdd")
+
                     fragmentManager.show(homeFragment)
                 } else {
+                    Log.d("Huang", " home isNotAdd")
+
                     fragmentManager.add(R.id.container, homeFragment)
                 }
             }
@@ -128,30 +133,38 @@ HasSupportFragmentInjector{
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(cartFragment)
                 fragmentManager.hide(profileFragment)
+
                 if (catalogFragment.isAdded) {
                     fragmentManager.show(catalogFragment)
                 } else {
                     fragmentManager.add(R.id.container, catalogFragment)
+                    fragmentManager.show(catalogFragment)
                 }
             }
             CART -> {
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(catalogFragment)
                 fragmentManager.hide(profileFragment)
+
                 if (cartFragment.isAdded) {
                     fragmentManager.show(cartFragment)
                 } else {
                     fragmentManager.add(R.id.container, cartFragment)
+                    fragmentManager.show(cartFragment)
                 }
             }
             PROFILE -> {
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(catalogFragment)
                 fragmentManager.hide(cartFragment)
+
                 if (profileFragment.isAdded) {
                     fragmentManager.show(profileFragment)
                 } else {
+
                     fragmentManager.add(R.id.container, profileFragment)
+                    fragmentManager.show(profileFragment)
+
                 }
             }
         }
