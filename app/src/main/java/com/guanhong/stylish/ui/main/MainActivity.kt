@@ -13,7 +13,7 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import com.guanhong.stylish.ui.CustomBottomSheetDialogFragment
+import com.guanhong.stylish.ui.LoginSheetDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
@@ -100,9 +100,14 @@ class MainActivity
                 transToFragment(PROFILE)
                 setToolbarTitle(getString(R.string.profile))
                 toolbarLogo.hide()
+                checkLogin()
             }
         }
         return true
+    }
+
+    private fun checkLogin() {
+        LoginSheetDialogFragment().show(supportFragmentManager, "FbLogin")
     }
 
     private fun setToolbarTitle(title: String) {
@@ -122,12 +127,8 @@ class MainActivity
                 fragmentManager.hide(profileFragment)
 
                 if (homeFragment.isAdded) {
-                    Log.d("Huang", " home isAdd")
-
                     fragmentManager.show(homeFragment)
                 } else {
-                    Log.d("Huang", " home isNotAdd")
-
                     fragmentManager.add(R.id.container, homeFragment)
                 }
             }
@@ -182,14 +183,6 @@ class MainActivity
                 .inflate(R.layout.notification_badge, itemView, true)
 
         badge.notificationBadge.text = ""
-        badge.notificationBadge.visible()
-    }
-
-    private fun View.visible() {
-        visibility = View.VISIBLE
-    }
-
-    private fun View.invisible() {
-        visibility = View.GONE
+        badge.notificationBadge.show()
     }
 }

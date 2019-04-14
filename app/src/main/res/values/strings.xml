@@ -4,4 +4,5 @@
     <string name="catalog">型錄</string>
     <string name="cart">購物車</string>
     <string name="profile">個人</string>
+    <string name="facebook_app_id">275037300103048</string> <string name="fb_login_protocol_scheme">fb275037300103048</string>
 </resources>

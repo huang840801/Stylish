@@ -2,7 +2,7 @@ package com.guanhong.stylish.ui.home
 
 interface HomeFragmentContract {
     interface View{
-      fun  onBindMarketingHots(hotsList: ArrayList<Any>)
+      fun  onBindMarketingHots(hotList: ArrayList<Any>)
     }
     interface Presenter{
         fun getMarketingHots()

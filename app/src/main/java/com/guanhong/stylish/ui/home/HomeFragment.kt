@@ -33,8 +33,6 @@ class HomeFragment : BaseFragment(), HomeFragmentContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d("Huang", " home created")
-
         adapter = HomeAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = this.adapter
