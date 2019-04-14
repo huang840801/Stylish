@@ -4,14 +4,17 @@ class ApiConfig {
     companion object {
 
         const val HTTP = "https://"
-        const val API = "/api/"
+        const val API = "/api"
         const val HOST_NAME = "api.appworks-school.tw"
-        const val API_VERSION = "1.0"
+        const val API_VERSION = "/1.0"
         const val MARKETING = "/marketing"
         const val CAMPAIGNS = "/campaigns"
         const val HOTS = "/hots"
+        const val USER = "/user"
+        const val SIGNIN = "/signin"
 
         const val MARKETING_HOTS_API = HTTP + HOST_NAME + API + API_VERSION + MARKETING + HOTS
+        const val USER_SIGN_IN_API = HTTP + HOST_NAME + API + API_VERSION + USER + SIGNIN
 
         const val data = "data"
         const val title = "title"

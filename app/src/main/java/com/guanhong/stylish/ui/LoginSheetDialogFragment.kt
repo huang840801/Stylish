@@ -11,6 +11,7 @@ import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.guanhong.stylish.R
+import com.guanhong.stylish.api.ApiHelper
 import kotlinx.android.synthetic.main.bottom_sheet.*
 import java.util.*
 
@@ -41,6 +42,9 @@ class LoginSheetDialogFragment : BottomSheetDialogFragment() {
         LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 Log.d("Huang", " token = " + result!!.accessToken.token)
+                val facebookToken = result.accessToken.token
+                val apiHelper = ApiHelper()
+                apiHelper.getUserSignIn(facebookToken)
             }
 
             override fun onCancel() {

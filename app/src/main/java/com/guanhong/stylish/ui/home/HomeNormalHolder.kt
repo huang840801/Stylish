@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Product
+import com.guanhong.stylish.model.Product
 
 class HomeNormalHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

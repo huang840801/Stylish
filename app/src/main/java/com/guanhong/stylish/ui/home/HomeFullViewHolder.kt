@@ -2,13 +2,12 @@ package com.guanhong.stylish.ui.home
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Product
+import com.guanhong.stylish.model.Product
 
 class HomeFullViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

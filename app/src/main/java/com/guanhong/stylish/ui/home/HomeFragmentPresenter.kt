@@ -1,6 +1,6 @@
 package com.guanhong.stylish.ui.home
 
-import com.guanhong.stylish.`object`.Data
+import com.guanhong.stylish.model.response.HotResponse
 import com.guanhong.stylish.api.DataResourceCallback
 import com.guanhong.stylish.repository.HotsRepository
 import javax.inject.Inject
@@ -12,11 +12,11 @@ class HomeFragmentPresenter @Inject constructor(
 
     override fun getMarketingHots() {
         repository.getMarketingHots(object : DataResourceCallback.GetMarketingHots {
-            override fun onSuccess(data: Data) {
+            override fun onSuccess(hotResponse: HotResponse) {
 
                 val hotList = ArrayList<Any>()
 
-                data.data.forEach { hots->
+                hotResponse.data.forEach { hots->
                     hotList.add(hots.title)
                     hots.products.forEach {products ->
                         hotList.add(products)

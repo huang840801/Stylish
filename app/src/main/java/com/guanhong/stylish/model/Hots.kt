@@ -1,4 +1,4 @@
-package com.guanhong.stylish.`object`
+package com.guanhong.stylish.model
 
 import com.google.gson.annotations.SerializedName
 

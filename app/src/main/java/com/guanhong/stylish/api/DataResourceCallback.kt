@@ -1,10 +1,10 @@
 package com.guanhong.stylish.api
 
-import com.guanhong.stylish.`object`.Data
+import com.guanhong.stylish.model.response.HotResponse
 
 interface DataResourceCallback {
 
     interface GetMarketingHots{
-        fun onSuccess(data: Data)
+        fun onSuccess(hotResponse: HotResponse)
     }
 }

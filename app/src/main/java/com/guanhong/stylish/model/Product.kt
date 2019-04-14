@@ -1,8 +1,6 @@
-package com.guanhong.stylish.`object`
+package com.guanhong.stylish.model
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
-import kotlin.collections.ArrayList
 
 data class Product(
         @SerializedName("id")var id: String,

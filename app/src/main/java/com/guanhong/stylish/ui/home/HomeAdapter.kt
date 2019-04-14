@@ -1,11 +1,10 @@
 package com.guanhong.stylish.ui.home
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.guanhong.stylish.R
-import com.guanhong.stylish.`object`.Product
+import com.guanhong.stylish.model.Product
 class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var hotList: List<Any> = listOf()
