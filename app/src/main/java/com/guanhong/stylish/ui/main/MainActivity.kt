@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import com.guanhong.stylish.ui.CustomBottomSheetDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
@@ -27,7 +28,8 @@ class MainActivity
     : BaseActivity(),
         MainContract.View,
         BottomNavigationView.OnNavigationItemSelectedListener,
-HasSupportFragmentInjector{
+        HasSupportFragmentInjector
+{
 
     @Inject
     lateinit var presenter: MainPresenter
