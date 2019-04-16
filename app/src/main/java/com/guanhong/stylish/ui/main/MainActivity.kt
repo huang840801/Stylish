@@ -11,7 +11,6 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.MenuItem
 import com.guanhong.stylish.Stylish
 import com.guanhong.stylish.api.ApiHelper
@@ -141,6 +140,12 @@ class MainActivity
         if (loginSheetDialogFragment != null) {
             loginSheetDialogFragment!!.dismiss()
         }
+        updateUserData()
+    }
+
+    private fun updateUserData(){
+        profileFragment.setUserData()
+
     }
 
     private fun setToolbarTitle(title: String) {
