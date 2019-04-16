@@ -1,5 +1,6 @@
 package com.guanhong.stylish.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import com.guanhong.stylish.BaseActivity
 import com.guanhong.stylish.R
@@ -12,12 +13,15 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
+import com.guanhong.stylish.Stylish
+import com.guanhong.stylish.api.ApiHelper
+import com.guanhong.stylish.api.DataResourceCallback
 import com.guanhong.stylish.ui.LoginSheetDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
+import com.guanhong.stylish.util.UserManager
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -28,8 +32,8 @@ class MainActivity
     : BaseActivity(),
         MainContract.View,
         BottomNavigationView.OnNavigationItemSelectedListener,
-        HasSupportFragmentInjector
-{
+        HasSupportFragmentInjector,
+        LoginSheetDialogFragment.LoginSheetDialogFragmentListener {
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -41,6 +45,8 @@ class MainActivity
     private lateinit var catalogFragment: CatalogFragment
     private lateinit var cartFragment: CartFragment
     private lateinit var profileFragment: ProfileFragment
+
+    private var loginSheetDialogFragment: LoginSheetDialogFragment? = null
 
     private val HOME = "home"
     private val CATALOG = "catalog"
@@ -106,8 +112,35 @@ class MainActivity
         return true
     }
 
+    override fun loginSuccess() {
+        dismissLoginSheetDialogFragment()
+    }
+
     private fun checkLogin() {
-        LoginSheetDialogFragment().show(supportFragmentManager, "FbLogin")
+
+        val stylishToken = Stylish.context.getSharedPreferences(UserManager.USER_DATA, Context.MODE_PRIVATE)
+                .getString(UserManager.USER_TOKEN, null)
+
+        if (!stylishToken.isNullOrEmpty()) {
+
+            ApiHelper().getUserSignIn(stylishToken, object : DataResourceCallback.GetUserSignIn {
+                override fun onSuccess() {
+                    dismissLoginSheetDialogFragment()
+                }
+            })
+        } else {
+
+            loginSheetDialogFragment = LoginSheetDialogFragment()
+            loginSheetDialogFragment!!.setListener(this)
+            loginSheetDialogFragment!!.show(supportFragmentManager, "FbLogin")
+        }
+    }
+
+    private fun dismissLoginSheetDialogFragment() {
+
+        if (loginSheetDialogFragment != null) {
+            loginSheetDialogFragment!!.dismiss()
+        }
     }
 
     private fun setToolbarTitle(title: String) {

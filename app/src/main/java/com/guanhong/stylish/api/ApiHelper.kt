@@ -6,6 +6,7 @@ import com.guanhong.stylish.model.response.FacebookResponse
 import com.guanhong.stylish.model.response.HotResponse
 import com.guanhong.stylish.util.ApiConfig.Companion.MARKETING_HOTS_API
 import com.guanhong.stylish.util.ApiConfig.Companion.USER_SIGN_IN_API
+import com.guanhong.stylish.util.UserManager
 import okhttp3.*
 import java.io.IOException
 
@@ -29,12 +30,12 @@ class ApiHelper {
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
-                Log.d("Huang", " GetMarketingHots Fail")
+                Log.d("Huang", " getMarketingHots Fail")
             }
         })
     }
 
-    fun getUserSignIn(facebookToken: String) {
+    fun getUserSignIn(facebookToken: String, getUserSignIn: DataResourceCallback.GetUserSignIn) {
 
         val formBody = FormBody.Builder()
                 .add("provider", "facebook")
@@ -48,23 +49,24 @@ class ApiHelper {
                 .build()
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call?, response: Response) {
+
                 if (response.code() == 200) {
                     val responseBody = response.body()!!.string()
                     val gSon = Gson()
                     val getJason = gSon.fromJson<FacebookResponse>(responseBody, FacebookResponse::class.java)
 
-                    Log.d("Huang", "  accessToken = " +USER_SIGN_IN_API)
-                    Log.d("Huang", "  accessToken = " +responseBody)
-                    Log.d("Huang", "  accessToken = " +getJason)
-                    Log.d("Huang", "  accessToken = " +getJason.data.accessToken)
                     Log.d("Huang", "  name = " +getJason.data.user.name)
                     Log.d("Huang", "  email = " +getJason.data.user.email)
-//                    marketingHotsCallback.onSuccess(getJason)
+                    UserManager.saveStylishToken(getJason.data.accessToken)
+                    UserManager.accessExpired = getJason.data.accessExpired
+                    UserManager.user = getJason.data.user
+
+                    getUserSignIn.onSuccess()
                 }
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
-
+                Log.d("Huang", " getUserSignIn Fail")
             }
         })
 

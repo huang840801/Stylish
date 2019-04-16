@@ -7,4 +7,7 @@ interface DataResourceCallback {
     interface GetMarketingHots{
         fun onSuccess(hotResponse: HotResponse)
     }
+    interface GetUserSignIn{
+        fun onSuccess()
+    }
 }
