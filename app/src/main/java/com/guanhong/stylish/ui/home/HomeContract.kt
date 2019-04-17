@@ -1,6 +1,6 @@
 package com.guanhong.stylish.ui.home
 
-interface HomeFragmentContract {
+interface HomeContract {
     interface View{
       fun  onBindMarketingHots(hotList: ArrayList<Any>)
     }

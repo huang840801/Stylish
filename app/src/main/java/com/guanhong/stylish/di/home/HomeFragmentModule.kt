@@ -14,5 +14,5 @@ abstract class HomeFragmentModule {
     @Binds
     @IntoMap
     @FragmentKey(HomeFragment::class)
-    abstract fun bind(builder: HomeFragmentSubComponent.Builder): AndroidInjector.Factory<out Fragment>
+    abstract fun bind(builder: HomeSubComponent.Builder): AndroidInjector.Factory<out Fragment>
 }

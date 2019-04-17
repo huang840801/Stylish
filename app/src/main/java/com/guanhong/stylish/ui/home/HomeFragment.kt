@@ -12,10 +12,10 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment(), HomeFragmentContract.View {
+class HomeFragment : BaseFragment(), HomeContract.View {
 
     @Inject
-    lateinit var presenter: HomeFragmentPresenter
+    lateinit var mPresenter: HomePresenter
 
     private lateinit var adapter: HomeAdapter
 
@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment(), HomeFragmentContract.View {
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = this.adapter
 
-        presenter.getMarketingHots()
+        mPresenter.getMarketingHots()
     }
 
     override fun onBindMarketingHots(hotList: ArrayList<Any>) {

@@ -5,10 +5,10 @@ import com.guanhong.stylish.api.DataResourceCallback
 import com.guanhong.stylish.repository.HotsRepository
 import javax.inject.Inject
 
-class HomeFragmentPresenter @Inject constructor(
+class HomePresenter @Inject constructor(
         private val repository: HotsRepository,
-        private val view: HomeFragmentContract.View)
-    : HomeFragmentContract.Presenter {
+        private val view: HomeContract.View)
+    : HomeContract.Presenter {
 
     override fun getMarketingHots() {
         repository.getMarketingHots(object : DataResourceCallback.GetMarketingHots {

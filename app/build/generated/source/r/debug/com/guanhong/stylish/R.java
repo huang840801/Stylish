@@ -2808,7 +2808,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>
@@ -5361,53 +5361,56 @@ public final class R {
     public static final int abc_shareactionprovider_share_with=0x7f0e0024;
     public static final int abc_shareactionprovider_share_with_application=0x7f0e0025;
     public static final int abc_toolbar_collapse_description=0x7f0e0026;
-    public static final int app_name=0x7f0e0027;
-    public static final int appbar_scrolling_view_behavior=0x7f0e0028;
-    public static final int bottom_sheet_behavior=0x7f0e0029;
-    public static final int cart=0x7f0e002a;
-    public static final int catalog=0x7f0e002b;
-    public static final int character_counter_content_description=0x7f0e002c;
-    public static final int character_counter_pattern=0x7f0e002d;
-    public static final int com_facebook_device_auth_instructions=0x7f0e002e;
-    public static final int com_facebook_image_download_unknown_error=0x7f0e002f;
-    public static final int com_facebook_internet_permission_error_message=0x7f0e0030;
-    public static final int com_facebook_internet_permission_error_title=0x7f0e0031;
-    public static final int com_facebook_like_button_liked=0x7f0e0032;
-    public static final int com_facebook_like_button_not_liked=0x7f0e0033;
-    public static final int com_facebook_loading=0x7f0e0034;
-    public static final int com_facebook_loginview_cancel_action=0x7f0e0035;
-    public static final int com_facebook_loginview_log_in_button=0x7f0e0036;
-    public static final int com_facebook_loginview_log_in_button_continue=0x7f0e0037;
-    public static final int com_facebook_loginview_log_in_button_long=0x7f0e0038;
-    public static final int com_facebook_loginview_log_out_action=0x7f0e0039;
-    public static final int com_facebook_loginview_log_out_button=0x7f0e003a;
-    public static final int com_facebook_loginview_logged_in_as=0x7f0e003b;
-    public static final int com_facebook_loginview_logged_in_using_facebook=0x7f0e003c;
-    public static final int com_facebook_loginview_logged_in_using_facebook_f1gender=0x7f0e003d;
-    public static final int com_facebook_send_button_text=0x7f0e003e;
-    public static final int com_facebook_share_button_text=0x7f0e003f;
-    public static final int com_facebook_smart_device_instructions=0x7f0e0040;
-    public static final int com_facebook_smart_device_instructions_or=0x7f0e0041;
-    public static final int com_facebook_smart_login_confirmation_cancel=0x7f0e0042;
-    public static final int com_facebook_smart_login_confirmation_continue_as=0x7f0e0043;
-    public static final int com_facebook_smart_login_confirmation_title=0x7f0e0044;
-    public static final int com_facebook_tooltip_default=0x7f0e0045;
-    public static final int fab_transformation_scrim_behavior=0x7f0e0046;
-    public static final int fab_transformation_sheet_behavior=0x7f0e0047;
-    public static final int facebook_app_id=0x7f0e0048;
-    public static final int fb_login_protocol_scheme=0x7f0e0049;
-    public static final int hide_bottom_view_on_scroll_behavior=0x7f0e004a;
-    public static final int messenger_send_button_text=0x7f0e004b;
-    public static final int mtrl_chip_close_icon_content_description=0x7f0e004c;
-    public static final int password_toggle_content_description=0x7f0e004d;
-    public static final int path_password_eye=0x7f0e004e;
-    public static final int path_password_eye_mask_strike_through=0x7f0e004f;
-    public static final int path_password_eye_mask_visible=0x7f0e0050;
-    public static final int path_password_strike_through=0x7f0e0051;
-    public static final int profile=0x7f0e0052;
-    public static final int search_menu_title=0x7f0e0053;
-    public static final int status_bar_notification_info_overflow=0x7f0e0054;
-    public static final int stylish=0x7f0e0055;
+    public static final int accessories=0x7f0e0027;
+    public static final int app_name=0x7f0e0028;
+    public static final int appbar_scrolling_view_behavior=0x7f0e0029;
+    public static final int bottom_sheet_behavior=0x7f0e002a;
+    public static final int cart=0x7f0e002b;
+    public static final int catalog=0x7f0e002c;
+    public static final int character_counter_content_description=0x7f0e002d;
+    public static final int character_counter_pattern=0x7f0e002e;
+    public static final int com_facebook_device_auth_instructions=0x7f0e002f;
+    public static final int com_facebook_image_download_unknown_error=0x7f0e0030;
+    public static final int com_facebook_internet_permission_error_message=0x7f0e0031;
+    public static final int com_facebook_internet_permission_error_title=0x7f0e0032;
+    public static final int com_facebook_like_button_liked=0x7f0e0033;
+    public static final int com_facebook_like_button_not_liked=0x7f0e0034;
+    public static final int com_facebook_loading=0x7f0e0035;
+    public static final int com_facebook_loginview_cancel_action=0x7f0e0036;
+    public static final int com_facebook_loginview_log_in_button=0x7f0e0037;
+    public static final int com_facebook_loginview_log_in_button_continue=0x7f0e0038;
+    public static final int com_facebook_loginview_log_in_button_long=0x7f0e0039;
+    public static final int com_facebook_loginview_log_out_action=0x7f0e003a;
+    public static final int com_facebook_loginview_log_out_button=0x7f0e003b;
+    public static final int com_facebook_loginview_logged_in_as=0x7f0e003c;
+    public static final int com_facebook_loginview_logged_in_using_facebook=0x7f0e003d;
+    public static final int com_facebook_loginview_logged_in_using_facebook_f1gender=0x7f0e003e;
+    public static final int com_facebook_send_button_text=0x7f0e003f;
+    public static final int com_facebook_share_button_text=0x7f0e0040;
+    public static final int com_facebook_smart_device_instructions=0x7f0e0041;
+    public static final int com_facebook_smart_device_instructions_or=0x7f0e0042;
+    public static final int com_facebook_smart_login_confirmation_cancel=0x7f0e0043;
+    public static final int com_facebook_smart_login_confirmation_continue_as=0x7f0e0044;
+    public static final int com_facebook_smart_login_confirmation_title=0x7f0e0045;
+    public static final int com_facebook_tooltip_default=0x7f0e0046;
+    public static final int fab_transformation_scrim_behavior=0x7f0e0047;
+    public static final int fab_transformation_sheet_behavior=0x7f0e0048;
+    public static final int facebook_app_id=0x7f0e0049;
+    public static final int fb_login_protocol_scheme=0x7f0e004a;
+    public static final int hide_bottom_view_on_scroll_behavior=0x7f0e004b;
+    public static final int men=0x7f0e004c;
+    public static final int messenger_send_button_text=0x7f0e004d;
+    public static final int mtrl_chip_close_icon_content_description=0x7f0e004e;
+    public static final int password_toggle_content_description=0x7f0e004f;
+    public static final int path_password_eye=0x7f0e0050;
+    public static final int path_password_eye_mask_strike_through=0x7f0e0051;
+    public static final int path_password_eye_mask_visible=0x7f0e0052;
+    public static final int path_password_strike_through=0x7f0e0053;
+    public static final int profile=0x7f0e0054;
+    public static final int search_menu_title=0x7f0e0055;
+    public static final int status_bar_notification_info_overflow=0x7f0e0056;
+    public static final int stylish=0x7f0e0057;
+    public static final int women=0x7f0e0058;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
@@ -11999,7 +12002,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>

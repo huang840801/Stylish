@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_catalog.*
 
 class CatalogFragment : Fragment() {
 
-
     private var fragmentList = mutableListOf<Fragment>()
     private lateinit var menFragment: MenFragment
     private lateinit var womenFragment: WomenFragment
