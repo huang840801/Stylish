@@ -1136,6 +1136,10 @@
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\55f1c370f47ea7771f99e72bb92843fe\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_women.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\fragment_women.xml"
+    },
+    {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
@@ -1162,6 +1166,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Stylish\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_men.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\fragment_men.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
@@ -1730,6 +1738,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_like_icon_selected.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-common-4.42.0.aar\\fb739d0259da08d67b6187f0770f8d82\\res\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_accessories.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\fragment_accessories.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_btn_stroke_color_selector.xml.flat",
