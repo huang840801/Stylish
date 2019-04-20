@@ -11,25 +11,30 @@ import com.guanhong.stylish.util.ApiConfig.Companion.USER_SIGN_IN_API
 import com.guanhong.stylish.util.UserManager
 import okhttp3.*
 import java.io.IOException
+import okhttp3.HttpUrl
+
 
 class ApiHelper {
 
     private val client = OkHttpClient()
 
-    fun getProductList(params: String, productListCallback: DataResourceCallback.GetProductList) {
-        val request = Request.Builder().url(PRODUCT_LISTS_API + params).build()
+    fun getProductList(params: String, paging: String?, productListCallback: DataResourceCallback.GetProductList) {
+        val httpBuilder = HttpUrl.parse(PRODUCT_LISTS_API + params)!!.newBuilder()
+
+        httpBuilder.addQueryParameter("paging", paging)
+
+        val request = Request.Builder().url(httpBuilder.build()).build()
+
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call?, response: Response) {
+
                 if (response.code() == 200) {
+
                     val responseBody = response.body()!!.string()
                     val gSon = Gson()
                     val getJson = gSon.fromJson<ProductListResponse>(responseBody, ProductListResponse::class.java)
 
-
                     productListCallback.onSuccess(getJson)
-                    Log.d("Huang", " json = ${getJson.paging}")
-//                    Log.d("Huang", " json = $responseBody")
-//                    Log.d("Huang", " json = "+ PRODUCT_LISTS_API + "/women")
                 }
             }
 

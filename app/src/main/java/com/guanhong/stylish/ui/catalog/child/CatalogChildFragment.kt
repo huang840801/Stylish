@@ -15,6 +15,8 @@ import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.util.ApiConfig.Companion.ACCESSORIES
 import com.guanhong.stylish.util.ApiConfig.Companion.MEN
 import com.guanhong.stylish.util.ApiConfig.Companion.WOMEN
+import com.guanhong.stylish.util.hide
+import com.guanhong.stylish.util.show
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_catalog_child.*
 import javax.inject.Inject
@@ -45,6 +47,16 @@ class CatalogChildFragment : BaseFragment(), CatalogChildContract.View {
         recyclerView.adapter = adapter
         recyclerView.addItemDecoration(SpacesItemDecoration(Stylish.context.resources.getDimensionPixelSize(R.dimen.item_decoration)))
 
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    presenter.getProductList(params)
+                }
+            }
+        })
+
         params = when (itemType) {
             TYPE.WOMEN -> {
                 WOMEN
@@ -60,10 +72,15 @@ class CatalogChildFragment : BaseFragment(), CatalogChildContract.View {
     }
 
     override fun onBindProductList(productList: List<Product>) {
-        activity!!.runOnUiThread {
 
+        activity!!.runOnUiThread {
             adapter.setProductList(productList)
+            progressBar.hide()
         }
+    }
+
+    override fun showProgressBar() {
+        progressBar.show()
     }
 
     fun newInstance(): CatalogChildFragment {

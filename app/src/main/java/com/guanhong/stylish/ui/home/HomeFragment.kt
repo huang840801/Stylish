@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
+import com.guanhong.stylish.util.hide
+import com.guanhong.stylish.util.show
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -35,6 +37,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = this.adapter
 
+        progressBar.show()
         presenter.getMarketingHots()
     }
 
@@ -42,6 +45,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 
        activity!!.runOnUiThread {
            adapter.onBindMarketingHots(hotList)
+           progressBar.hide()
        }
     }
 

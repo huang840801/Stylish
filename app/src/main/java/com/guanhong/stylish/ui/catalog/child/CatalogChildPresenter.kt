@@ -11,15 +11,30 @@ class CatalogChildPresenter @Inject constructor(
         private val view: CatalogChildContract.View)
     : CatalogChildContract.Presenter {
 
+    private var productList: List<Product> = listOf()
+    private var hasNextPage = true
+    private var paging: String? = null
+
     override fun getProductList(itemType: String) {
 
-        repository.getProductList(itemType, object : DataResourceCallback.GetProductList {
-            override fun onSuccess(response: ProductListResponse) {
-                val productList: List<Product> = response.data
-                var paging: String? = response.paging
+        if (hasNextPage) {
 
-                view.onBindProductList(productList)
-            }
-        })
+            view.showProgressBar()
+
+            repository.getProductList(itemType, paging, object : DataResourceCallback.GetProductList {
+                override fun onSuccess(response: ProductListResponse) {
+
+                    if (response.paging == null) {
+                        hasNextPage = false
+                    }
+                    productList += response.data
+
+                    paging = response.paging
+                    view.onBindProductList(productList)
+                }
+            })
+        }
     }
+
+    fun hasNextPage(): Boolean = hasNextPage
 }

@@ -16,6 +16,7 @@ class CatalogChildAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return productList.count()
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -33,14 +34,15 @@ class CatalogChildAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder){
-            is CatalogChildHolder ->{
+        when (holder) {
+            is CatalogChildHolder -> {
                 holder.setResult(productList[position])
             }
         }
     }
 
     override fun getItemViewType(position: Int): Int {
+
         return NORMAL_TYPE
     }
 

@@ -21,6 +21,8 @@ import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
 import com.guanhong.stylish.util.UserManager
+import com.guanhong.stylish.util.hide
+import com.guanhong.stylish.util.show
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
