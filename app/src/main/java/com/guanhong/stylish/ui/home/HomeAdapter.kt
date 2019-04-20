@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
-class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class HomeAdapter(private val listener: HomeAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+        HomeFullViewHolder.HomeFullViewHolderListener,
+        HomeNormalHolder.HomeNormalHolderListener {
 
     private var hotList: List<Any> = listOf()
 
@@ -15,6 +17,9 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         const val NORMAL_TYPE = 3
     }
 
+    interface HomeAdapterListener{
+        fun itemClick(product: Product)
+    }
     override fun getItemCount(): Int = hotList.count()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -26,11 +31,11 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             FULL_VIEW_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_full_view, parent, false)
-                return HomeFullViewHolder(view).setResource(parent.context)
+                return HomeFullViewHolder(view).setResource(parent.context, this)
             }
             NORMAL_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_normal, parent, false)
-                return HomeNormalHolder(view).setResource(parent.context)
+                return HomeNormalHolder(view).setResource(parent.context, this)
             }
             else -> {
                 throw Exception("ViewType not match")
@@ -60,6 +65,10 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             (hotList[position] is Product && position == 1) -> FULL_VIEW_TYPE
             else -> NORMAL_TYPE
         }
+    }
+
+    override fun itemClick(product: Product) {
+        listener.itemClick(product)
     }
 
     fun onBindMarketingHots(hotList: ArrayList<Any>) {

@@ -8,19 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
+import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.util.hide
 import com.guanhong.stylish.util.show
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment(), HomeContract.View {
+class HomeFragment : BaseFragment(), HomeContract.View, HomeAdapter.HomeAdapterListener {
 
     @Inject
     lateinit var presenter: HomePresenter
 
     private lateinit var adapter: HomeAdapter
+    private lateinit var listener: HomeFragmentListener
 
+    interface HomeFragmentListener{
+        fun itemClick(product: Product)
+    }
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(activity)
@@ -33,7 +38,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = HomeAdapter()
+        adapter = HomeAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = this.adapter
 
@@ -48,8 +53,15 @@ class HomeFragment : BaseFragment(), HomeContract.View {
            progressBar.hide()
        }
     }
+    override fun itemClick(product: Product) {
+        listener.itemClick(product)
+    }
 
     fun newInstance(): HomeFragment {
         return HomeFragment()
+    }
+
+    fun setListener(listener: HomeFragmentListener) {
+        this.listener = listener
     }
 }

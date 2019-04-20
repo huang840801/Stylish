@@ -21,14 +21,21 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_catalog_child.*
 import javax.inject.Inject
 
-class CatalogChildFragment : BaseFragment(), CatalogChildContract.View {
+class CatalogChildFragment : BaseFragment(),
+        CatalogChildContract.View,
+        CatalogChildAdapter.CatalogChildAdapterListener {
 
     @Inject
     lateinit var presenter: CatalogChildPresenter
 
-    internal lateinit var itemType: TYPE
+    lateinit var itemType: TYPE
     private lateinit var params: String
     private lateinit var adapter: CatalogChildAdapter
+    private lateinit var listener: CatalogChildFragmentListener
+
+    interface CatalogChildFragmentListener {
+        fun itemClick(product: Product)
+    }
 
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
@@ -42,7 +49,7 @@ class CatalogChildFragment : BaseFragment(), CatalogChildContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = CatalogChildAdapter()
+        adapter = CatalogChildAdapter(this)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = adapter
         recyclerView.addItemDecoration(SpacesItemDecoration(Stylish.context.resources.getDimensionPixelSize(R.dimen.item_decoration)))
@@ -83,8 +90,16 @@ class CatalogChildFragment : BaseFragment(), CatalogChildContract.View {
         progressBar.show()
     }
 
+    override fun itemClick(product: Product) {
+        listener.itemClick(product)
+    }
+
     fun newInstance(): CatalogChildFragment {
         return CatalogChildFragment()
+    }
+
+    fun setListener(listener: CatalogChildFragmentListener) {
+        this.listener = listener
     }
 }
 

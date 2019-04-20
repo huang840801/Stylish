@@ -6,12 +6,18 @@ import android.view.ViewGroup
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
 
-class CatalogChildAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CatalogChildAdapter(private val listener: CatalogChildAdapterListener) :
+        RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+        CatalogChildHolder.CatalogChildHolderListener {
 
     private var productList: List<Product> = listOf()
 
     companion object {
         const val NORMAL_TYPE = 1
+    }
+
+    interface CatalogChildAdapterListener {
+        fun itemClick(product: Product)
     }
 
     override fun getItemCount(): Int {
@@ -25,7 +31,7 @@ class CatalogChildAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             NORMAL_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_catolog_child, parent, false)
-                CatalogChildHolder(view).setResource(parent.context)
+                CatalogChildHolder(view).setResource(parent.context, this)
             }
             else -> {
                 throw Exception("ViewType not match")
@@ -44,6 +50,10 @@ class CatalogChildAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemViewType(position: Int): Int {
 
         return NORMAL_TYPE
+    }
+
+    override fun itemClick(product: Product) {
+        listener.itemClick(product)
     }
 
     fun setProductList(productList: List<Product>) {

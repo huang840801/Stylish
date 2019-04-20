@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
+import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.catalog.child.ViewPagerAdapter
 import com.guanhong.stylish.ui.catalog.child.CatalogChildFragment
 import com.guanhong.stylish.ui.catalog.child.TYPE
@@ -15,11 +16,17 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_catalog.*
 import javax.inject.Inject
 
-class CatalogFragment : BaseFragment(), CatalogContract.View {
+class CatalogFragment : BaseFragment(), CatalogContract.View, CatalogChildFragment.CatalogChildFragmentListener {
+
     @Inject
     lateinit var presenter: CatalogPresenter
 
+    private lateinit var listener: CatalogFragmentListener
     private var fragmentList = mutableListOf<Fragment>()
+
+    interface CatalogFragmentListener {
+        fun itemClick(product: Product)
+    }
 
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
@@ -35,6 +42,10 @@ class CatalogFragment : BaseFragment(), CatalogContract.View {
 
         setViewPager()
         tabLayout.setupWithViewPager(viewPager)
+    }
+
+    override fun itemClick(product: Product) {
+        listener.itemClick(product)
     }
 
     fun newInstance(): CatalogFragment {
@@ -55,8 +66,13 @@ class CatalogFragment : BaseFragment(), CatalogContract.View {
     private fun createChildFragment(itemType: TYPE): CatalogChildFragment {
 
         val fragment = CatalogChildFragment().newInstance()
+        fragment.setListener(this)
         fragment.itemType = itemType
 
         return fragment
+    }
+
+    fun setListener(listener: CatalogFragmentListener) {
+        this.listener = listener
     }
 }

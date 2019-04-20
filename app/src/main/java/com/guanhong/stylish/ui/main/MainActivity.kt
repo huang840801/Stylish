@@ -11,10 +11,12 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.MenuItem
 import com.guanhong.stylish.Stylish
 import com.guanhong.stylish.api.ApiHelper
 import com.guanhong.stylish.api.DataResourceCallback
+import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.LoginSheetDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
@@ -34,7 +36,9 @@ class MainActivity
         MainContract.View,
         BottomNavigationView.OnNavigationItemSelectedListener,
         HasSupportFragmentInjector,
-        LoginSheetDialogFragment.LoginSheetDialogFragmentListener {
+        LoginSheetDialogFragment.LoginSheetDialogFragmentListener,
+        CatalogFragment.CatalogFragmentListener,
+        HomeFragment.HomeFragmentListener {
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -72,7 +76,9 @@ class MainActivity
         bottomNavigation.setOnNavigationItemSelectedListener(this)
 
         homeFragment = HomeFragment().newInstance()
+        homeFragment.setListener(this)
         catalogFragment = CatalogFragment().newInstance()
+        catalogFragment.setListener(this)
         cartFragment = CartFragment().newInstance()
         profileFragment = ProfileFragment().newInstance()
 
@@ -115,6 +121,10 @@ class MainActivity
 
     override fun loginSuccess() {
         dismissLoginSheetDialogFragment()
+    }
+
+    override fun itemClick(product:Product) {
+        Log.d("Huang", "  itemClick ${product.title}")
     }
 
     private fun checkLogin() {
