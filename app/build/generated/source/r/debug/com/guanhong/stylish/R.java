@@ -4846,7 +4846,7 @@ public final class R {
     public static final int com_facebook_tooltip_blue_bottomnub=0x7f070076;
     public static final int com_facebook_tooltip_blue_topnub=0x7f070077;
     public static final int com_facebook_tooltip_blue_xout=0x7f070078;
-    public static final int corners_bg=0x7f070079;
+    public static final int dialod_fragment =0x7f070079;
     public static final int design_bottom_navigation_item_background=0x7f07007a;
     public static final int design_fab_background=0x7f07007b;
     public static final int design_ic_visibility=0x7f07007c;
