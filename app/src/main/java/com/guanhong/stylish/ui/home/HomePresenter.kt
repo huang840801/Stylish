@@ -12,11 +12,11 @@ class HomePresenter @Inject constructor(
 
     override fun getMarketingHots() {
         repository.getMarketingHots(object : DataResourceCallback.GetMarketingHots {
-            override fun onSuccess(hotResponse: HotResponse) {
+            override fun onSuccess(response: HotResponse) {
 
                 val hotList = ArrayList<Any>()
 
-                hotResponse.data.forEach { hots->
+                response.data.forEach { hots->
                     hotList.add(hots.title)
                     hots.products.forEach {products ->
                         hotList.add(products)

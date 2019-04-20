@@ -15,7 +15,7 @@ import javax.inject.Inject
 class HomeFragment : BaseFragment(), HomeContract.View {
 
     @Inject
-    lateinit var mPresenter: HomePresenter
+    lateinit var presenter: HomePresenter
 
     private lateinit var adapter: HomeAdapter
 
@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = this.adapter
 
-        mPresenter.getMarketingHots()
+        presenter.getMarketingHots()
     }
 
     override fun onBindMarketingHots(hotList: ArrayList<Any>) {

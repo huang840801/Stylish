@@ -12,9 +12,14 @@ class ApiConfig {
         const val HOTS = "/hots"
         const val USER = "/user"
         const val SIGNIN = "/signin"
+        const val PRODUCTS = "/products"
+        const val WOMEN = "/women"
+        const val MEN = "/men"
+        const val ACCESSORIES = "/accessories"
 
         const val MARKETING_HOTS_API = HTTP + HOST_NAME + API + API_VERSION + MARKETING + HOTS
         const val USER_SIGN_IN_API = HTTP + HOST_NAME + API + API_VERSION + USER + SIGNIN
+        const val PRODUCT_LISTS_API = HTTP + HOST_NAME + API + API_VERSION + PRODUCTS
 
         const val data = "data"
         const val title = "title"
