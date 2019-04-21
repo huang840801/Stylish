@@ -1,6 +1,7 @@
 package com.guanhong.stylish.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Product(
         @SerializedName("id")var id: String,
@@ -17,4 +18,4 @@ data class Product(
         @SerializedName("variants") var variants: List<Variant> = listOf(),
         @SerializedName("main_image") var main_image: String,
         @SerializedName("images") var images: List<String> = listOf()
-)
+) : Serializable

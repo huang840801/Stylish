@@ -20,6 +20,7 @@ import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.LoginSheetDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
+import com.guanhong.stylish.ui.detail.DetailFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
 import com.guanhong.stylish.util.UserManager
@@ -38,7 +39,8 @@ class MainActivity
         HasSupportFragmentInjector,
         LoginSheetDialogFragment.LoginSheetDialogFragmentListener,
         CatalogFragment.CatalogFragmentListener,
-        HomeFragment.HomeFragmentListener {
+        HomeFragment.HomeFragmentListener,
+        DetailFragment.DetailFragmentListener {
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -50,13 +52,15 @@ class MainActivity
     private lateinit var catalogFragment: CatalogFragment
     private lateinit var cartFragment: CartFragment
     private lateinit var profileFragment: ProfileFragment
+    private lateinit var detailFragment: DetailFragment
 
     private var loginSheetDialogFragment: LoginSheetDialogFragment? = null
 
-    private val HOME = "home"
-    private val CATALOG = "catalog"
-    private val CART = "cart"
-    private val PROFILE = "profile"
+    private val home = "home"
+    private val catalog = "catalog"
+    private val cart = "cart"
+    private val profile = "profile"
+    private val detail = "detail"
 
     companion object {
         const val FRAGMENT_HOME = "home"
@@ -81,8 +85,10 @@ class MainActivity
         catalogFragment.setListener(this)
         cartFragment = CartFragment().newInstance()
         profileFragment = ProfileFragment().newInstance()
+        detailFragment = DetailFragment().newInstance()
+        detailFragment.setListener(this)
 
-        transToFragment(HOME)
+        transToFragment(home, null)
         toolbarLogo.show()
     }
 
@@ -94,23 +100,23 @@ class MainActivity
 
         when (item.itemId) {
             R.id.action_home -> {
-                transToFragment(HOME)
+                transToFragment(home, null)
                 toolbarTitle.hide()
                 toolbarLogo.show()
             }
             R.id.action_catalog -> {
-                transToFragment(CATALOG)
+                transToFragment(catalog, null)
                 setToolbarTitle(getString(R.string.catalog))
                 toolbarLogo.hide()
             }
             R.id.action_cart -> {
-                transToFragment(CART)
+                transToFragment(cart, null)
                 setToolbarTitle(getString(R.string.cart))
                 toolbarLogo.hide()
             }
 
             R.id.action_profile -> {
-                transToFragment(PROFILE)
+                transToFragment(profile, null)
                 setToolbarTitle(getString(R.string.profile))
                 toolbarLogo.hide()
                 checkLogin()
@@ -123,9 +129,21 @@ class MainActivity
         dismissLoginSheetDialogFragment()
     }
 
-    override fun itemClick(product:Product) {
+    override fun itemClick(product: Product) {
         Log.d("Huang", "  itemClick ${product.title}")
+        transToFragment(detail, product)
     }
+
+    override fun detailFragmentCreate() {
+        toolbar.hide()
+        bottomNavigation.hide()
+    }
+
+    override fun detailFragmentDestroy() {
+        toolbar.show()
+        bottomNavigation.show()
+    }
+
 
     private fun checkLogin() {
 
@@ -155,7 +173,7 @@ class MainActivity
         updateUserData()
     }
 
-    private fun updateUserData(){
+    private fun updateUserData() {
         profileFragment.setUserData()
 
     }
@@ -165,13 +183,13 @@ class MainActivity
         toolbarTitle.text = title
     }
 
-    private fun transToFragment(fragmentType: String) {
+    private fun transToFragment(fragmentType: String, product: Product?) {
 
         val fragmentManager = supportFragmentManager.beginTransaction()
 
         when (fragmentType) {
 
-            HOME -> {
+            home -> {
                 fragmentManager.hide(catalogFragment)
                 fragmentManager.hide(cartFragment)
                 fragmentManager.hide(profileFragment)
@@ -182,7 +200,7 @@ class MainActivity
                     fragmentManager.add(R.id.container, homeFragment)
                 }
             }
-            CATALOG -> {
+            catalog -> {
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(cartFragment)
                 fragmentManager.hide(profileFragment)
@@ -194,7 +212,7 @@ class MainActivity
                     fragmentManager.show(catalogFragment)
                 }
             }
-            CART -> {
+            cart -> {
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(catalogFragment)
                 fragmentManager.hide(profileFragment)
@@ -206,7 +224,7 @@ class MainActivity
                     fragmentManager.show(cartFragment)
                 }
             }
-            PROFILE -> {
+            profile -> {
                 fragmentManager.hide(homeFragment)
                 fragmentManager.hide(catalogFragment)
                 fragmentManager.hide(cartFragment)
@@ -219,6 +237,28 @@ class MainActivity
                     fragmentManager.show(profileFragment)
 
                 }
+            }
+            detail -> {
+                fragmentManager.hide(homeFragment)
+                fragmentManager.hide(catalogFragment)
+                fragmentManager.hide(cartFragment)
+                fragmentManager.hide(profileFragment)
+
+                if (product != null) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("product", product)
+                    detailFragment.arguments = bundle
+                }
+
+                if (detailFragment.isAdded) {
+                    fragmentManager.show(detailFragment)
+                } else {
+
+                    fragmentManager.add(R.id.container, detailFragment)
+                    fragmentManager.show(detailFragment)
+                }
+
+                fragmentManager.addToBackStack(null)
             }
         }
         fragmentManager.commit()
