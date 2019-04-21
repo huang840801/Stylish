@@ -472,6 +472,10 @@
         "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\image_logo01.png"
     },
     {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_detail_color.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\item_detail_color.xml"
+    },
+    {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_button_send_icon_white.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-share-4.42.0.aar\\13d02b3f73b8ddd2be78d8c35d23ae3b\\res\\drawable-xhdpi-v4\\com_facebook_button_send_icon_white.png"
     },
