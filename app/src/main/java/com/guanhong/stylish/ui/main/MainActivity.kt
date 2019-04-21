@@ -130,7 +130,6 @@ class MainActivity
     }
 
     override fun itemClick(product: Product) {
-        Log.d("Huang", "  itemClick ${product.title}")
         transToFragment(detail, product)
     }
 
@@ -143,7 +142,6 @@ class MainActivity
         toolbar.show()
         bottomNavigation.show()
     }
-
 
     private fun checkLogin() {
 
@@ -185,65 +183,72 @@ class MainActivity
 
     private fun transToFragment(fragmentType: String, product: Product?) {
 
-        val fragmentManager = supportFragmentManager.beginTransaction()
-
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
         when (fragmentType) {
 
             home -> {
-                fragmentManager.hide(catalogFragment)
-                fragmentManager.hide(cartFragment)
-                fragmentManager.hide(profileFragment)
+                transaction.hide(catalogFragment)
+                transaction.hide(cartFragment)
+                transaction.hide(profileFragment)
+                transaction.hide(detailFragment)
 
                 if (homeFragment.isAdded) {
-                    fragmentManager.show(homeFragment)
+                    transaction.show(homeFragment)
                 } else {
-                    fragmentManager.add(R.id.container, homeFragment)
+                    transaction.add(R.id.container, homeFragment)
                 }
             }
             catalog -> {
-                fragmentManager.hide(homeFragment)
-                fragmentManager.hide(cartFragment)
-                fragmentManager.hide(profileFragment)
+                transaction.hide(homeFragment)
+                transaction.hide(cartFragment)
+                transaction.hide(profileFragment)
+                transaction.hide(detailFragment)
 
                 if (catalogFragment.isAdded) {
-                    fragmentManager.show(catalogFragment)
+                    transaction.show(catalogFragment)
                 } else {
-                    fragmentManager.add(R.id.container, catalogFragment)
-                    fragmentManager.show(catalogFragment)
+                    transaction.add(R.id.container, catalogFragment)
+                    transaction.show(catalogFragment)
                 }
             }
             cart -> {
-                fragmentManager.hide(homeFragment)
-                fragmentManager.hide(catalogFragment)
-                fragmentManager.hide(profileFragment)
+                transaction.hide(homeFragment)
+                transaction.hide(catalogFragment)
+                transaction.hide(profileFragment)
+                transaction.hide(detailFragment)
 
                 if (cartFragment.isAdded) {
-                    fragmentManager.show(cartFragment)
+                    transaction.show(cartFragment)
                 } else {
-                    fragmentManager.add(R.id.container, cartFragment)
-                    fragmentManager.show(cartFragment)
+                    transaction.add(R.id.container, cartFragment)
+                    transaction.show(cartFragment)
                 }
             }
             profile -> {
-                fragmentManager.hide(homeFragment)
-                fragmentManager.hide(catalogFragment)
-                fragmentManager.hide(cartFragment)
+                transaction.hide(homeFragment)
+                transaction.hide(catalogFragment)
+                transaction.hide(cartFragment)
+                transaction.hide(detailFragment)
 
                 if (profileFragment.isAdded) {
-                    fragmentManager.show(profileFragment)
+                    transaction.show(profileFragment)
                 } else {
 
-                    fragmentManager.add(R.id.container, profileFragment)
-                    fragmentManager.show(profileFragment)
+                    transaction.add(R.id.container, profileFragment)
+                    transaction.show(profileFragment)
 
                 }
             }
             detail -> {
-                fragmentManager.hide(homeFragment)
-                fragmentManager.hide(catalogFragment)
-                fragmentManager.hide(cartFragment)
-                fragmentManager.hide(profileFragment)
 
+                for (element in fragmentManager.fragments) {
+                    if (!element.isHidden) {
+                        transaction.hide(element)
+                        transaction.addToBackStack(null)
+                        break
+                    }
+                }
                 if (product != null) {
                     val bundle = Bundle()
                     bundle.putSerializable("product", product)
@@ -251,17 +256,15 @@ class MainActivity
                 }
 
                 if (detailFragment.isAdded) {
-                    fragmentManager.show(detailFragment)
+                    transaction.show(detailFragment)
                 } else {
 
-                    fragmentManager.add(R.id.container, detailFragment)
-                    fragmentManager.show(detailFragment)
+                    transaction.add(R.id.container, detailFragment)
+                    transaction.show(detailFragment)
                 }
-
-                fragmentManager.addToBackStack(null)
             }
         }
-        fragmentManager.commit()
+        transaction.commit()
     }
 
     private fun setNotificationBadge() {

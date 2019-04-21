@@ -43,13 +43,20 @@ class DetailFragment : BaseFragment() {
             product = arguments!!.getSerializable("product") as Product
         }
 
+        setRecyclerView(product)
+        setProductDetail(product)
+    }
+
+    private fun setRecyclerView(product: Product) {
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         adapter = DetailAdapter()
         recyclerView.adapter = adapter
         LinearSnapHelper().attachToRecyclerView(recyclerView)
 
         adapter.onBindImageList(product.images)
+    }
 
+    private fun setProductDetail(product: Product) {
         title.text = product.title
         price.text = "NT$ " + product.price.toString()
         productId.text = product.id
