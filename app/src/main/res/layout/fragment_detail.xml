@@ -19,7 +19,8 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
+                app:layout_constraintTop_toTopOf="parent">
+            </android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/title"
@@ -115,15 +116,6 @@
 
                     </LinearLayout>
 
-                    <!--<TextView-->
-                    <!--android:id="@+id/color"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="12dp"-->
-                    <!--android:layout_marginStart="12dp"-->
-                    <!--android:text="color"-->
-                    <!--android:textColor="@color/black"-->
-                    <!--android:textSize="@dimen/body" />-->
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,7 +180,7 @@
                         android:background="@drawable/corners_bg" />
 
                     <TextView
-                        android:id="@+id/stock"
+                        android:id="@+id/stockCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

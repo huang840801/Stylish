@@ -11,13 +11,12 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.MenuItem
 import com.guanhong.stylish.Stylish
 import com.guanhong.stylish.api.ApiHelper
 import com.guanhong.stylish.api.DataResourceCallback
 import com.guanhong.stylish.model.Product
-import com.guanhong.stylish.ui.LoginSheetDialogFragment
+import com.guanhong.stylish.ui.LoginDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.detail.DetailFragment
@@ -37,7 +36,7 @@ class MainActivity
         MainContract.View,
         BottomNavigationView.OnNavigationItemSelectedListener,
         HasSupportFragmentInjector,
-        LoginSheetDialogFragment.LoginSheetDialogFragmentListener,
+        LoginDialogFragment.LoginSheetDialogFragmentListener,
         CatalogFragment.CatalogFragmentListener,
         HomeFragment.HomeFragmentListener,
         DetailFragment.DetailFragmentListener {
@@ -54,7 +53,7 @@ class MainActivity
     private lateinit var profileFragment: ProfileFragment
     private lateinit var detailFragment: DetailFragment
 
-    private var loginSheetDialogFragment: LoginSheetDialogFragment? = null
+    private var loginDialogFragment: LoginDialogFragment? = null
 
     private val home = "home"
     private val catalog = "catalog"
@@ -157,16 +156,16 @@ class MainActivity
             })
         } else {
 
-            loginSheetDialogFragment = LoginSheetDialogFragment()
-            loginSheetDialogFragment!!.setListener(this)
-            loginSheetDialogFragment!!.show(supportFragmentManager, "FbLogin")
+            loginDialogFragment = LoginDialogFragment()
+            loginDialogFragment!!.setListener(this)
+            loginDialogFragment!!.show(supportFragmentManager, "FbLogin")
         }
     }
 
     private fun dismissLoginSheetDialogFragment() {
 
-        if (loginSheetDialogFragment != null) {
-            loginSheetDialogFragment!!.dismiss()
+        if (loginDialogFragment != null) {
+            loginDialogFragment!!.dismiss()
         }
         updateUserData()
     }

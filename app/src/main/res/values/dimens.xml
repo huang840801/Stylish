@@ -4,4 +4,7 @@
     <dimen name="body">16sp</dimen>
     <dimen name="small_body">12sp</dimen>
     <dimen name="item_decoration">16dp</dimen>
+    <dimen name="edge_add2cart_select_2dp">2dp</dimen>
+    <dimen name="edge_add2cart_select_10dp">8dp</dimen>
+    <dimen name="edge_add2cart_select_0dp">0dp</dimen>
 </resources>

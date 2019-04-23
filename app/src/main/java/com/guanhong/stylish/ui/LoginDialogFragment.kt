@@ -13,11 +13,11 @@ import com.facebook.login.LoginResult
 import com.guanhong.stylish.R
 import com.guanhong.stylish.api.ApiHelper
 import com.guanhong.stylish.api.DataResourceCallback
-import kotlinx.android.synthetic.main.bottom_sheet.*
+import kotlinx.android.synthetic.main.dialog_login.*
 import java.util.*
 
 
-class LoginSheetDialogFragment : BottomSheetDialogFragment() {
+class LoginDialogFragment : BottomSheetDialogFragment() {
 
     private lateinit var callbackManager: CallbackManager
     private lateinit var listener: LoginSheetDialogFragmentListener
@@ -28,14 +28,13 @@ class LoginSheetDialogFragment : BottomSheetDialogFragment() {
         fun loginSuccess()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        return inflater.inflate(R.layout.bottom_sheet, container, false)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.dialog_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

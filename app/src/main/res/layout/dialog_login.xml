@@ -5,7 +5,7 @@
     android:id="@+id/bottomSheetLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/dialod_fragment"
+    android:background="@drawable/dialog_fragment"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <TextView

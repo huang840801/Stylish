@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
-import android.support.v7.widget.SnapHelper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,8 @@ import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
 import kotlinx.android.synthetic.main.fragment_detail.*
-import android.widget.LinearLayout
 import android.graphics.drawable.GradientDrawable
+import com.guanhong.stylish.ui.add2cart.AddCartFragment
 import kotlinx.android.synthetic.main.item_detail_color.view.*
 
 
@@ -24,6 +23,7 @@ class DetailFragment : BaseFragment() {
 
     private lateinit var product: Product
     private lateinit var adapter: DetailAdapter
+    private lateinit var addToCartFragment: AddCartFragment
 
     interface DetailFragmentListener {
         fun detailFragmentCreate()
@@ -39,12 +39,22 @@ class DetailFragment : BaseFragment() {
 
         listener.detailFragmentCreate()
 
+        addToCartFragment = AddCartFragment()
+
         if (arguments != null) {
             product = arguments!!.getSerializable("product") as Product
         }
 
         setRecyclerView(product)
         setProductDetail(product)
+
+        addToCart.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("product", product)
+            addToCartFragment.arguments = bundle
+
+            addToCartFragment.show(activity!!.supportFragmentManager, "add2Cart")
+        }
     }
 
     private fun setRecyclerView(product: Product) {
@@ -67,7 +77,7 @@ class DetailFragment : BaseFragment() {
         } else {
             product.sizes.first() + " - " + product.sizes.last()
         }
-        stock.text = product.variants.sumBy { it.stock }.toString()
+        stockCount.text = product.variants.sumBy { it.stock }.toString()
         texture.text = product.texture
         wash.text = product.wash
         place.text = product.place
@@ -80,22 +90,16 @@ class DetailFragment : BaseFragment() {
 
             val gd = GradientDrawable(
                     GradientDrawable.Orientation.BOTTOM_TOP,
-                    intArrayOf(Color.parseColor("#" + it.code),Color.parseColor("#" + it.code)))
+                    intArrayOf(Color.parseColor("#" + it.code), Color.parseColor("#" + it.code)))
             gd.setStroke(1, Color.BLACK)
+
             itemView.color.setBackgroundDrawable(gd)
             colorLayout.addView(itemView)
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-        Log.d("Huang", " onDestroy")
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d("Huang", " onDestroyView")
         listener.detailFragmentDestroy()
     }
 
