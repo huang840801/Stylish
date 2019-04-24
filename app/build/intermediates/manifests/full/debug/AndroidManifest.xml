@@ -25,7 +25,9 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name="com.guanhong.stylish.ui.main.MainActivity" >
+        <activity
+            android:name="com.guanhong.stylish.ui.main.MainActivity"
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

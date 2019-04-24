@@ -4,18 +4,22 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.util.hide
 import com.guanhong.stylish.util.setEdge
+import com.guanhong.stylish.util.setEditable
 import com.guanhong.stylish.util.show
 import kotlinx.android.synthetic.main.dialog_add_cart.*
 import kotlinx.android.synthetic.main.item_add_cart_color.view.*
-
+import android.content.Context.INPUT_METHOD_SERVICE
 
 class AddCartFragment : BottomSheetDialogFragment() {
 
@@ -23,6 +27,8 @@ class AddCartFragment : BottomSheetDialogFragment() {
 
     private var colorViewList = mutableListOf<View>()
     private var colorCodeList = mutableListOf<String>()
+    private var sizeViewList = mutableListOf<View>()
+    private var sizeCodeList = mutableListOf<String>()
     private var selectColor: String = ""
     private var selectSize: String = ""
 
@@ -42,13 +48,24 @@ class AddCartFragment : BottomSheetDialogFragment() {
             product = arguments!!.getSerializable("product") as Product
         }
 
-        countEditText.isClickable = false
-        countEditText.isFocusable = false
+        colorViewList.clear()
+        colorCodeList.clear()
+        sizeViewList.clear()
+        sizeCodeList.clear()
+
+        countEditText.setEditable(false)
+        countEditText.setText("1")
 
         setProductDetail(product)
 
         addToCart.setOnClickListener {
             addToCart()
+        }
+        closeButton.setOnClickListener {
+            this.dismiss()
+        }
+        bottomSheetLayout.setOnClickListener {
+            hideKeyBroad()
         }
     }
 
@@ -92,6 +109,7 @@ class AddCartFragment : BottomSheetDialogFragment() {
 
                 stockCount.hide()
                 stockText.hide()
+                countEditText.setEditable(false)
 
                 setSize(code)
                 selectColor = code
@@ -106,46 +124,78 @@ class AddCartFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun setColorEdge(code: String) {
-
-        Log.d("Huang  ", " aaa = $code")
-        Log.d("Huang  ", " count = "+ colorViewList.count())
-
-
-        colorViewList.forEachIndexed { index, view ->
-
-            view.setEdge( R.dimen.edge_add2cart_select_0dp, resources.getColor(R.color.black))
-            if (index == colorCodeList.indexOf(code)){
-                view.setEdge( R.dimen.edge_add2cart_select_10dp, resources.getColor(R.color.black))
-
-            }
-        }
-    }
-
-
     private fun setSize(code: String) {
 
         sizeLayout.removeAllViews()
         product.variants.filter { it.color_code == code }.forEach { variant ->
 
-            val count = variant.stock
-            val itemView = View.inflate(context, R.layout.item_add_cart_color, null)
-            itemView.setOnClickListener {
+            if (variant.stock != 0) {
+
+                val count = variant.stock
+                val itemView = View.inflate(context, R.layout.item_add_cart_color, null)
+                sizeViewList.add(itemView.childView)
+                sizeCodeList.add(variant.size)
                 setStockCount(count)
+                itemView.setOnClickListener {
 
-                selectSize = variant.size
-                itemView.childView.setEdge(
-                        R.dimen.edge_add2cart_select_10dp,
-                        resources.getColor(R.color.black))
+                    countEditText.setEditable(true)
+
+                    countEditText.addTextChangedListener(object : TextWatcher {
+                        override fun afterTextChanged(s: Editable?) {}
+                        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                            if (s!!.toString().toInt() > variant.stock) {
+
+                                stockText.setTextColor(resources.getColor(R.color.red))
+                                stockCount.setTextColor(resources.getColor(R.color.red))
+                            } else {
+                                stockText.setTextColor(resources.getColor(R.color.black))
+                                stockCount.setTextColor(resources.getColor(R.color.black))
+                            }
+                        }
+
+                    })
+                    selectSize = variant.size
+
+                    setSizeEdge(code)
+                    itemView.childView.setEdge(
+                            R.dimen.edge_add2cart_select_10dp,
+                            resources.getColor(R.color.black))
+                }
+                itemView.childView.text = variant.size
+                sizeLayout.addView(itemView)
             }
-
-            itemView.childView.text = variant.size
-            sizeLayout.addView(itemView)
         }
+    }
 
+    private fun setColorEdge(code: String) {
+
+        colorViewList.forEachIndexed { index, view ->
+
+            if (index == colorCodeList.indexOf(code)) {
+                view.setEdge(R.dimen.edge_add2cart_select_10dp, resources.getColor(R.color.black))
+
+            } else {
+                view.setEdge(
+                        R.dimen.edge_add2cart_select_2dp,
+                        R.color.black)
+            }
+        }
+    }
+
+    private fun setSizeEdge(code: String) {
+        sizeViewList.forEachIndexed { index, view ->
+
+            view.setEdge(R.dimen.edge_add2cart_select_0dp, resources.getColor(R.color.black))
+            if (index == sizeCodeList.indexOf(code)) {
+                view.setEdge(R.dimen.edge_add2cart_select_10dp, resources.getColor(R.color.black))
+            }
+        }
     }
 
     private fun setStockCount(count: Int) {
+
         stockCount.text = count.toString()
         stockCount.show()
         stockText.show()
@@ -165,5 +215,10 @@ class AddCartFragment : BottomSheetDialogFragment() {
 
     private fun getCountEditTextInt(): Int {
         return countEditText.text.toString().toInt()
+    }
+
+    private fun hideKeyBroad() {
+        val imm = context!!.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm!!.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-android-support:2.17] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\dagger-android-support-2.17.aar\383febcaf77a2f67842c7b07db938c9d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.42.0.aar\3ccf60536cb3b8466b736c33aff55514\AndroidManifest.xml:21:1-31:12
@@ -51,20 +51,20 @@ MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\hello\.g
 MERGED from [com.android.support:print:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\fe29c20f2799d40901f881edb43e9d5c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\ac341e7ab0c14234c5bce6ec75b48af2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\fd411627fe9e16716397a15c71c55add\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:11-69
@@ -73,7 +73,7 @@ ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:7:5-27:19
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:7:5-29:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.42.0.aar\3ccf60536cb3b8466b736c33aff55514\AndroidManifest.xml:28:5-29:19
@@ -127,19 +127,21 @@ ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:16:9-18:55
 	android:name
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:17:13-58
 activity#com.guanhong.stylish.ui.main.MainActivity
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:9-26:20
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:9-28:20
+	android:windowSoftInputMode
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:13-55
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:19-55
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:21:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:21:13-25:29
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:17-77
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:27-74
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml

@@ -67,6 +67,9 @@ class LoginDialogFragment : BottomSheetDialogFragment() {
         loginLayout.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"))
         }
+        close.setOnClickListener{
+            this.dismiss()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

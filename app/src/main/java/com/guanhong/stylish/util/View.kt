@@ -7,6 +7,7 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.os.Build
 import android.view.View
+import android.widget.EditText
 import com.guanhong.stylish.R
 import com.guanhong.stylish.Stylish
 
@@ -29,4 +30,13 @@ fun View.setEdge(edgeWidth: Int, color:Int){
             }
         })
     }
+}
+fun EditText.setEditable(canEditable : Boolean){
+
+    if (canEditable) {
+        requestFocus()
+    }
+    isEnabled = canEditable
+    isFocusable = canEditable
+    isFocusableInTouchMode = canEditable
 }
