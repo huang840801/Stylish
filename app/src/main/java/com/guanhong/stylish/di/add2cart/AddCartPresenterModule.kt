@@ -10,7 +10,7 @@ import dagger.Provides
 class AddCartPresenterModule {
 
     @Provides
-    fun addCartFrahmentModelProdiver(): AddCartRepository{
+    fun addCartFragmentModelProvider(): AddCartRepository{
         return AddCartRepository()
     }
 
