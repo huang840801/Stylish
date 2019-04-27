@@ -14,4 +14,8 @@ interface DataResourceCallback {
     interface GetProductList{
         fun onSuccess(response: ProductListResponse)
     }
+    interface AddToCart{
+        fun onSuccess()
+        fun onFail()
+    }
 }

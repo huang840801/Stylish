@@ -20,16 +20,16 @@
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-messenger-4.42.0.aar\\46292cdf6ac04e511f31f2ca0a38b7b0\\res\\drawable-xxhdpi-v4\\messenger_bubble_large_white.png"
     },
     {
-        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_design_tint_password_toggle.xml.flat",
-        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\37d188ab151926001f7016b4d14e34a1\\res\\color\\design_tint_password_toggle.xml"
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
-        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
-        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_design_tint_password_toggle.xml.flat",
+        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\37d188ab151926001f7016b4d14e34a1\\res\\color\\design_tint_password_toggle.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_edit_text_material.xml.flat",
@@ -298,10 +298,6 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_fast_out_slow_in.xml.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\37d188ab151926001f7016b4d14e34a1\\res\\interpolator\\mtrl_fast_out_slow_in.xml"
-    },
-    {
-        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corners_bg.xml.flat",
-        "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\corners_bg.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -1772,12 +1768,12 @@
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_show_motion_spec.xml.flat",
-        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\37d188ab151926001f7016b4d14e34a1\\res\\animator\\mtrl_fab_show_motion_spec.xml"
-    },
-    {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_count_edittext.xml.flat",
         "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\count_edittext.xml"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_show_motion_spec.xml.flat",
+        "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\37d188ab151926001f7016b4d14e34a1\\res\\animator\\mtrl_fab_show_motion_spec.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
@@ -1922,6 +1918,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_com_facebook_send_button_text_color.xml.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-share-4.42.0.aar\\13d02b3f73b8ddd2be78d8c35d23ae3b\\res\\color\\com_facebook_send_button_text_color.xml"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_translate_90p_black_corners_bg.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\translate_90p_black_corners_bg.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_chip_text_color.xml.flat",
@@ -2242,6 +2242,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_light_gray_corners_bg.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\light_gray_corners_bg.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",

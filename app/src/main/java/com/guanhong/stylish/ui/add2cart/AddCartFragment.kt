@@ -1,12 +1,12 @@
 package com.guanhong.stylish.ui.add2cart
 
+import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +20,17 @@ import com.guanhong.stylish.util.show
 import kotlinx.android.synthetic.main.dialog_add_cart.*
 import kotlinx.android.synthetic.main.item_add_cart_color.view.*
 import android.content.Context.INPUT_METHOD_SERVICE
+import com.guanhong.stylish.model.CartProduct
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
-class AddCartFragment : BottomSheetDialogFragment() {
+class AddCartFragment : BottomSheetDialogFragment(), AddCartContract.View {
+
+    @Inject
+    lateinit var presenter: AddCartPresenter
 
     private lateinit var product: Product
+    private lateinit var listener: AddCartFragmentListener
 
     private var colorViewList = mutableListOf<View>()
     private var colorCodeList = mutableListOf<String>()
@@ -31,6 +38,15 @@ class AddCartFragment : BottomSheetDialogFragment() {
     private var sizeCodeList = mutableListOf<String>()
     private var selectColor: String = ""
     private var selectSize: String = ""
+
+    interface AddCartFragmentListener {
+        fun addToCart(isSuccess: Boolean)
+    }
+
+    override fun onAttach(activity: Activity?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(activity)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +72,7 @@ class AddCartFragment : BottomSheetDialogFragment() {
         countEditText.setEditable(false)
         countEditText.setText("1")
 
-        setProductDetail(product)
+        setProductDetail()
 
         addToCart.setOnClickListener {
             addToCart()
@@ -69,14 +85,37 @@ class AddCartFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun addToCart() {
-
-        Log.d("Huang", " selectColor = $selectColor")
-        Log.d("Huang", " selectSize = $selectSize")
-        Log.d("Huang", " selectCount = ${getCountEditTextInt()}")
+    override fun showAddToCartResult(isSuccess: Boolean) {
+        this.dismiss()
+        listener.addToCart(isSuccess)
     }
 
-    private fun setProductDetail(product: Product) {
+    fun setListener(listener: AddCartFragmentListener) {
+        this.listener = listener
+    }
+
+    private fun addToCart() {
+
+        val cartProduct = CartProduct()
+
+        cartProduct.id = this.product.id
+        cartProduct.title = this.product.title
+        cartProduct.description = this.product.description
+        cartProduct.price = this.product.price
+        cartProduct.texture = this.product.texture
+        cartProduct.wash = this.product.wash
+        cartProduct.place = this.product.place
+        cartProduct.note = this.product.note
+        cartProduct.story = this.product.story
+        cartProduct.mainImage = this.product.main_image
+        cartProduct.selectedColorCode = selectColor
+        cartProduct.selectedSize = selectSize
+        cartProduct.selectedStock = getCountEditTextInt()
+
+        presenter.addToCart(this.context!!, cartProduct)
+    }
+
+    private fun setProductDetail() {
         title.text = product.title
         price.text = "NT $ " + product.price.toString()
 
@@ -135,8 +174,8 @@ class AddCartFragment : BottomSheetDialogFragment() {
                 val itemView = View.inflate(context, R.layout.item_add_cart_color, null)
                 sizeViewList.add(itemView.childView)
                 sizeCodeList.add(variant.size)
-                setStockCount(count)
                 itemView.setOnClickListener {
+                    setStockCount(count)
 
                     countEditText.setEditable(true)
 
@@ -144,8 +183,8 @@ class AddCartFragment : BottomSheetDialogFragment() {
                         override fun afterTextChanged(s: Editable?) {}
                         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-                        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                            if (s!!.toString().toInt() > variant.stock) {
+                        override fun onTextChanged(number: CharSequence?, start: Int, before: Int, count: Int) {
+                            if (number!!.isNotEmpty() && number.toString().toInt() > variant.stock) {
 
                                 stockText.setTextColor(resources.getColor(R.color.red))
                                 stockCount.setTextColor(resources.getColor(R.color.red))

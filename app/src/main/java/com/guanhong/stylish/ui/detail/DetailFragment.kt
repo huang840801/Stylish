@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +13,12 @@ import com.guanhong.stylish.model.Product
 import kotlinx.android.synthetic.main.fragment_detail.*
 import android.graphics.drawable.GradientDrawable
 import com.guanhong.stylish.ui.add2cart.AddCartFragment
+import com.guanhong.stylish.util.hide
+import com.guanhong.stylish.util.show
 import kotlinx.android.synthetic.main.item_detail_color.view.*
 
 
-class DetailFragment : BaseFragment() {
+class DetailFragment : BaseFragment(), AddCartFragment.AddCartFragmentListener {
 
     private lateinit var listener: DetailFragmentListener
 
@@ -40,7 +41,7 @@ class DetailFragment : BaseFragment() {
         listener.detailFragmentCreate()
 
         addToCartFragment = AddCartFragment()
-
+        addToCartFragment.setListener(this)
         if (arguments != null) {
             product = arguments!!.getSerializable("product") as Product
         }
@@ -54,6 +55,21 @@ class DetailFragment : BaseFragment() {
             addToCartFragment.arguments = bundle
 
             addToCartFragment.show(activity!!.supportFragmentManager, "add2Cart")
+        }
+    }
+
+    override fun addToCart(isSuccess: Boolean) {
+        if (isSuccess) {
+            resultLayout.show()
+            resultImage.setImageResource(R.drawable.icons_44px_success01)
+            resultText.text = "加入成功"
+        } else {
+            resultLayout.show()
+            resultImage.setImageResource(R.drawable.icons_44px_failed)
+            resultText.text = "加入失敗"
+        }
+        resultLayout.setOnClickListener {
+            resultLayout.hide()
         }
     }
 

@@ -105,7 +105,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <LinearLayout
                         android:id="@+id/colorLayout"
@@ -141,7 +141,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/size"
@@ -177,7 +177,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/stockCount"
@@ -213,7 +213,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/texture"
@@ -249,7 +249,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/wash"
@@ -285,7 +285,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/place"
@@ -322,7 +322,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/corners_bg" />
+                        android:background="@drawable/light_gray_corners_bg" />
 
                     <TextView
                         android:id="@+id/note"
@@ -364,5 +364,50 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/blackBackground"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/translate_90p_black_corners_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45">
+
+            <ImageView
+                android:id="@+id/resultImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="@+id/blackBackground"
+                app:layout_constraintStart_toStartOf="@+id/blackBackground"
+                app:layout_constraintTop_toTopOf="@+id/blackBackground" />
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title"
+                app:layout_constraintBottom_toBottomOf="@+id/blackBackground"
+                app:layout_constraintEnd_toEndOf="@+id/blackBackground"
+                app:layout_constraintStart_toStartOf="@+id/blackBackground"
+                app:layout_constraintTop_toTopOf="@+id/blackBackground" />
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
