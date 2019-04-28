@@ -9,4 +9,5 @@
     <string name="men">男裝</string>
     <string name="accessories">配件</string>
     <string name="addCart">加入購物車</string>
+    <string name="remove">移除</string>
 </resources>

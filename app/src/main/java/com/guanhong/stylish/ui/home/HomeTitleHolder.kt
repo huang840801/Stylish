@@ -9,11 +9,11 @@ class HomeTitleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val title = itemView.findViewById<TextView>(R.id.title)
 
-    fun setResult(title: String) {
-        this.title.text = title
-    }
-
     fun setResource(): RecyclerView.ViewHolder {
         return this
+    }
+
+    fun setResult(title: String) {
+        this.title.text = title
     }
 }

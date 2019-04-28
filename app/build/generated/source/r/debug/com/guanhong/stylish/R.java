@@ -2808,7 +2808,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>
@@ -4648,94 +4648,95 @@ public final class R {
     public static final int disabled_alpha_material_light=0x7f060093;
     public static final int edge_add2cart_select_0dp=0x7f060094;
     public static final int edge_add2cart_select_10dp=0x7f060095;
-    public static final int edge_add2cart_select_2dp=0x7f060096;
-    public static final int fastscroll_default_thickness=0x7f060097;
-    public static final int fastscroll_margin=0x7f060098;
-    public static final int fastscroll_minimum_range=0x7f060099;
-    public static final int highlight_alpha_material_colored=0x7f06009a;
-    public static final int highlight_alpha_material_dark=0x7f06009b;
-    public static final int highlight_alpha_material_light=0x7f06009c;
-    public static final int hint_alpha_material_dark=0x7f06009d;
-    public static final int hint_alpha_material_light=0x7f06009e;
-    public static final int hint_pressed_alpha_material_dark=0x7f06009f;
-    public static final int hint_pressed_alpha_material_light=0x7f0600a0;
-    public static final int item_decoration=0x7f0600a1;
-    public static final int item_touch_helper_max_drag_scroll_per_frame=0x7f0600a2;
-    public static final int item_touch_helper_swipe_escape_max_velocity=0x7f0600a3;
-    public static final int item_touch_helper_swipe_escape_velocity=0x7f0600a4;
-    public static final int mtrl_bottomappbar_fabOffsetEndMode=0x7f0600a5;
-    public static final int mtrl_bottomappbar_fab_cradle_margin=0x7f0600a6;
-    public static final int mtrl_bottomappbar_fab_cradle_rounded_corner_radius=0x7f0600a7;
-    public static final int mtrl_bottomappbar_fab_cradle_vertical_offset=0x7f0600a8;
-    public static final int mtrl_bottomappbar_height=0x7f0600a9;
-    public static final int mtrl_btn_corner_radius=0x7f0600aa;
-    public static final int mtrl_btn_dialog_btn_min_width=0x7f0600ab;
-    public static final int mtrl_btn_disabled_elevation=0x7f0600ac;
-    public static final int mtrl_btn_disabled_z=0x7f0600ad;
-    public static final int mtrl_btn_elevation=0x7f0600ae;
-    public static final int mtrl_btn_focused_z=0x7f0600af;
-    public static final int mtrl_btn_hovered_z=0x7f0600b0;
-    public static final int mtrl_btn_icon_btn_padding_left=0x7f0600b1;
-    public static final int mtrl_btn_icon_padding=0x7f0600b2;
-    public static final int mtrl_btn_inset=0x7f0600b3;
-    public static final int mtrl_btn_letter_spacing=0x7f0600b4;
-    public static final int mtrl_btn_padding_bottom=0x7f0600b5;
-    public static final int mtrl_btn_padding_left=0x7f0600b6;
-    public static final int mtrl_btn_padding_right=0x7f0600b7;
-    public static final int mtrl_btn_padding_top=0x7f0600b8;
-    public static final int mtrl_btn_pressed_z=0x7f0600b9;
-    public static final int mtrl_btn_stroke_size=0x7f0600ba;
-    public static final int mtrl_btn_text_btn_icon_padding=0x7f0600bb;
-    public static final int mtrl_btn_text_btn_padding_left=0x7f0600bc;
-    public static final int mtrl_btn_text_btn_padding_right=0x7f0600bd;
-    public static final int mtrl_btn_text_size=0x7f0600be;
-    public static final int mtrl_btn_z=0x7f0600bf;
-    public static final int mtrl_card_elevation=0x7f0600c0;
-    public static final int mtrl_card_spacing=0x7f0600c1;
-    public static final int mtrl_chip_pressed_translation_z=0x7f0600c2;
-    public static final int mtrl_chip_text_size=0x7f0600c3;
-    public static final int mtrl_fab_elevation=0x7f0600c4;
-    public static final int mtrl_fab_translation_z_hovered_focused=0x7f0600c5;
-    public static final int mtrl_fab_translation_z_pressed=0x7f0600c6;
-    public static final int mtrl_navigation_elevation=0x7f0600c7;
-    public static final int mtrl_navigation_item_horizontal_padding=0x7f0600c8;
-    public static final int mtrl_navigation_item_icon_padding=0x7f0600c9;
-    public static final int mtrl_snackbar_background_corner_radius=0x7f0600ca;
-    public static final int mtrl_snackbar_margin=0x7f0600cb;
-    public static final int mtrl_textinput_box_bottom_offset=0x7f0600cc;
-    public static final int mtrl_textinput_box_corner_radius_medium=0x7f0600cd;
-    public static final int mtrl_textinput_box_corner_radius_small=0x7f0600ce;
-    public static final int mtrl_textinput_box_label_cutout_padding=0x7f0600cf;
-    public static final int mtrl_textinput_box_padding_end=0x7f0600d0;
-    public static final int mtrl_textinput_box_stroke_width_default=0x7f0600d1;
-    public static final int mtrl_textinput_box_stroke_width_focused=0x7f0600d2;
-    public static final int mtrl_textinput_outline_box_expanded_padding=0x7f0600d3;
-    public static final int mtrl_toolbar_default_height=0x7f0600d4;
-    public static final int notification_action_icon_size=0x7f0600d5;
-    public static final int notification_action_text_size=0x7f0600d6;
-    public static final int notification_big_circle_margin=0x7f0600d7;
-    public static final int notification_content_margin_start=0x7f0600d8;
-    public static final int notification_large_icon_height=0x7f0600d9;
-    public static final int notification_large_icon_width=0x7f0600da;
-    public static final int notification_main_column_padding_top=0x7f0600db;
-    public static final int notification_media_narrow_margin=0x7f0600dc;
-    public static final int notification_right_icon_size=0x7f0600dd;
-    public static final int notification_right_side_padding_top=0x7f0600de;
-    public static final int notification_small_icon_background_padding=0x7f0600df;
-    public static final int notification_small_icon_size_as_large=0x7f0600e0;
-    public static final int notification_subtext_size=0x7f0600e1;
-    public static final int notification_top_pad=0x7f0600e2;
-    public static final int notification_top_pad_large_text=0x7f0600e3;
-    public static final int small_body=0x7f0600e4;
-    public static final int title=0x7f0600e5;
-    public static final int tooltip_corner_radius=0x7f0600e6;
-    public static final int tooltip_horizontal_padding=0x7f0600e7;
-    public static final int tooltip_margin=0x7f0600e8;
-    public static final int tooltip_precise_anchor_extra_offset=0x7f0600e9;
-    public static final int tooltip_precise_anchor_threshold=0x7f0600ea;
-    public static final int tooltip_vertical_padding=0x7f0600eb;
-    public static final int tooltip_y_offset_non_touch=0x7f0600ec;
-    public static final int tooltip_y_offset_touch=0x7f0600ed;
+    public static final int edge_add2cart_select_1dp=0x7f060096;
+    public static final int edge_add2cart_select_2dp=0x7f060097;
+    public static final int fastscroll_default_thickness=0x7f060098;
+    public static final int fastscroll_margin=0x7f060099;
+    public static final int fastscroll_minimum_range=0x7f06009a;
+    public static final int highlight_alpha_material_colored=0x7f06009b;
+    public static final int highlight_alpha_material_dark=0x7f06009c;
+    public static final int highlight_alpha_material_light=0x7f06009d;
+    public static final int hint_alpha_material_dark=0x7f06009e;
+    public static final int hint_alpha_material_light=0x7f06009f;
+    public static final int hint_pressed_alpha_material_dark=0x7f0600a0;
+    public static final int hint_pressed_alpha_material_light=0x7f0600a1;
+    public static final int item_decoration=0x7f0600a2;
+    public static final int item_touch_helper_max_drag_scroll_per_frame=0x7f0600a3;
+    public static final int item_touch_helper_swipe_escape_max_velocity=0x7f0600a4;
+    public static final int item_touch_helper_swipe_escape_velocity=0x7f0600a5;
+    public static final int mtrl_bottomappbar_fabOffsetEndMode=0x7f0600a6;
+    public static final int mtrl_bottomappbar_fab_cradle_margin=0x7f0600a7;
+    public static final int mtrl_bottomappbar_fab_cradle_rounded_corner_radius=0x7f0600a8;
+    public static final int mtrl_bottomappbar_fab_cradle_vertical_offset=0x7f0600a9;
+    public static final int mtrl_bottomappbar_height=0x7f0600aa;
+    public static final int mtrl_btn_corner_radius=0x7f0600ab;
+    public static final int mtrl_btn_dialog_btn_min_width=0x7f0600ac;
+    public static final int mtrl_btn_disabled_elevation=0x7f0600ad;
+    public static final int mtrl_btn_disabled_z=0x7f0600ae;
+    public static final int mtrl_btn_elevation=0x7f0600af;
+    public static final int mtrl_btn_focused_z=0x7f0600b0;
+    public static final int mtrl_btn_hovered_z=0x7f0600b1;
+    public static final int mtrl_btn_icon_btn_padding_left=0x7f0600b2;
+    public static final int mtrl_btn_icon_padding=0x7f0600b3;
+    public static final int mtrl_btn_inset=0x7f0600b4;
+    public static final int mtrl_btn_letter_spacing=0x7f0600b5;
+    public static final int mtrl_btn_padding_bottom=0x7f0600b6;
+    public static final int mtrl_btn_padding_left=0x7f0600b7;
+    public static final int mtrl_btn_padding_right=0x7f0600b8;
+    public static final int mtrl_btn_padding_top=0x7f0600b9;
+    public static final int mtrl_btn_pressed_z=0x7f0600ba;
+    public static final int mtrl_btn_stroke_size=0x7f0600bb;
+    public static final int mtrl_btn_text_btn_icon_padding=0x7f0600bc;
+    public static final int mtrl_btn_text_btn_padding_left=0x7f0600bd;
+    public static final int mtrl_btn_text_btn_padding_right=0x7f0600be;
+    public static final int mtrl_btn_text_size=0x7f0600bf;
+    public static final int mtrl_btn_z=0x7f0600c0;
+    public static final int mtrl_card_elevation=0x7f0600c1;
+    public static final int mtrl_card_spacing=0x7f0600c2;
+    public static final int mtrl_chip_pressed_translation_z=0x7f0600c3;
+    public static final int mtrl_chip_text_size=0x7f0600c4;
+    public static final int mtrl_fab_elevation=0x7f0600c5;
+    public static final int mtrl_fab_translation_z_hovered_focused=0x7f0600c6;
+    public static final int mtrl_fab_translation_z_pressed=0x7f0600c7;
+    public static final int mtrl_navigation_elevation=0x7f0600c8;
+    public static final int mtrl_navigation_item_horizontal_padding=0x7f0600c9;
+    public static final int mtrl_navigation_item_icon_padding=0x7f0600ca;
+    public static final int mtrl_snackbar_background_corner_radius=0x7f0600cb;
+    public static final int mtrl_snackbar_margin=0x7f0600cc;
+    public static final int mtrl_textinput_box_bottom_offset=0x7f0600cd;
+    public static final int mtrl_textinput_box_corner_radius_medium=0x7f0600ce;
+    public static final int mtrl_textinput_box_corner_radius_small=0x7f0600cf;
+    public static final int mtrl_textinput_box_label_cutout_padding=0x7f0600d0;
+    public static final int mtrl_textinput_box_padding_end=0x7f0600d1;
+    public static final int mtrl_textinput_box_stroke_width_default=0x7f0600d2;
+    public static final int mtrl_textinput_box_stroke_width_focused=0x7f0600d3;
+    public static final int mtrl_textinput_outline_box_expanded_padding=0x7f0600d4;
+    public static final int mtrl_toolbar_default_height=0x7f0600d5;
+    public static final int notification_action_icon_size=0x7f0600d6;
+    public static final int notification_action_text_size=0x7f0600d7;
+    public static final int notification_big_circle_margin=0x7f0600d8;
+    public static final int notification_content_margin_start=0x7f0600d9;
+    public static final int notification_large_icon_height=0x7f0600da;
+    public static final int notification_large_icon_width=0x7f0600db;
+    public static final int notification_main_column_padding_top=0x7f0600dc;
+    public static final int notification_media_narrow_margin=0x7f0600dd;
+    public static final int notification_right_icon_size=0x7f0600de;
+    public static final int notification_right_side_padding_top=0x7f0600df;
+    public static final int notification_small_icon_background_padding=0x7f0600e0;
+    public static final int notification_small_icon_size_as_large=0x7f0600e1;
+    public static final int notification_subtext_size=0x7f0600e2;
+    public static final int notification_top_pad=0x7f0600e3;
+    public static final int notification_top_pad_large_text=0x7f0600e4;
+    public static final int small_body=0x7f0600e5;
+    public static final int title=0x7f0600e6;
+    public static final int tooltip_corner_radius=0x7f0600e7;
+    public static final int tooltip_horizontal_padding=0x7f0600e8;
+    public static final int tooltip_margin=0x7f0600e9;
+    public static final int tooltip_precise_anchor_extra_offset=0x7f0600ea;
+    public static final int tooltip_precise_anchor_threshold=0x7f0600eb;
+    public static final int tooltip_vertical_padding=0x7f0600ec;
+    public static final int tooltip_y_offset_non_touch=0x7f0600ed;
+    public static final int tooltip_y_offset_touch=0x7f0600ee;
   }
   public static final class drawable {
     public static final int abc_ab_share_pack_mtrl_alpha=0x7f070007;
@@ -5456,10 +5457,11 @@ public final class R {
     public static final int path_password_eye_mask_visible=0x7f0e0053;
     public static final int path_password_strike_through=0x7f0e0054;
     public static final int profile=0x7f0e0055;
-    public static final int search_menu_title=0x7f0e0056;
-    public static final int status_bar_notification_info_overflow=0x7f0e0057;
-    public static final int stylish=0x7f0e0058;
-    public static final int women=0x7f0e0059;
+    public static final int remove=0x7f0e0056;
+    public static final int search_menu_title=0x7f0e0057;
+    public static final int status_bar_notification_info_overflow=0x7f0e0058;
+    public static final int stylish=0x7f0e0059;
+    public static final int women=0x7f0e005a;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
@@ -12053,7 +12055,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>
