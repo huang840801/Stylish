@@ -10,11 +10,10 @@ class CartProduct {
     var place: String = ""
     var note: String = ""
     var story: String = ""
+    var stock: Int = 0
     var mainImage: String = ""
 
     var selectedColorCode = ""
     var selectedSize = ""
     var selectedStock = 0
-
-//   var images: List<String> = listOf()
 }

@@ -6,13 +6,17 @@ import android.view.ViewGroup
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.CartProduct
 
-class CartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+class CartAdapter(private val listener: CartAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
         CartProductHolder.CartProductHolderListener {
 
     private var cartProducts: List<CartProduct> = listOf()
 
     companion object {
         const val NORMAL_TYPE = 1
+    }
+
+    interface CartAdapterListener{
+        fun removeClick(productId: String)
     }
     override fun getItemCount(): Int = cartProducts.count()
 
@@ -36,6 +40,10 @@ class CartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
                 holder.setResult(cartProducts[position])
             }
         }
+    }
+
+    override fun removeClick(productId: String) {
+        listener.removeClick(productId)
     }
 
     override fun getItemViewType(position: Int): Int {

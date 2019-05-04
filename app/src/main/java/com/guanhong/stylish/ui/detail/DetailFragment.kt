@@ -29,6 +29,7 @@ class DetailFragment : BaseFragment(), AddCartFragment.AddCartFragmentListener {
     interface DetailFragmentListener {
         fun detailFragmentCreate()
         fun detailFragmentDestroy()
+        fun addToCart()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,6 +64,7 @@ class DetailFragment : BaseFragment(), AddCartFragment.AddCartFragmentListener {
             resultLayout.show()
             resultImage.setImageResource(R.drawable.icons_44px_success01)
             resultText.text = "加入成功"
+            listener.addToCart()
         } else {
             resultLayout.show()
             resultImage.setImageResource(R.drawable.icons_44px_failed)

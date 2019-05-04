@@ -22,4 +22,7 @@ interface DataResourceCallback {
     interface GetCartProductList{
         fun onSuccess(cartProducts: List<CartProduct>)
     }
+    interface DeleteCartProduct{
+        fun onSuccess()
+    }
 }

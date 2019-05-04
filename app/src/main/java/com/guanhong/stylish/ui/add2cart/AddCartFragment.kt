@@ -36,8 +36,9 @@ class AddCartFragment : BottomSheetDialogFragment(), AddCartContract.View {
     private var colorCodeList = mutableListOf<String>()
     private var sizeViewList = mutableListOf<View>()
     private var sizeCodeList = mutableListOf<String>()
-    private var selectColor: String = ""
-    private var selectSize: String = ""
+    private var stock = 0
+    private var selectColor = ""
+    private var selectSize = ""
 
     interface AddCartFragmentListener {
         fun addToCart(isSuccess: Boolean)
@@ -107,6 +108,7 @@ class AddCartFragment : BottomSheetDialogFragment(), AddCartContract.View {
         cartProduct.place = this.product.place
         cartProduct.note = this.product.note
         cartProduct.story = this.product.story
+        cartProduct.stock = this.stock
         cartProduct.mainImage = this.product.main_image
         cartProduct.selectedColorCode = selectColor
         cartProduct.selectedSize = selectSize
@@ -175,6 +177,7 @@ class AddCartFragment : BottomSheetDialogFragment(), AddCartContract.View {
                 sizeViewList.add(itemView.childView)
                 sizeCodeList.add(variant.size)
                 itemView.setOnClickListener {
+                    this.stock = count
                     setStockCount(count)
 
                     countEditText.setEditable(true)

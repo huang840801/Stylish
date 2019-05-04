@@ -10,4 +10,5 @@
     <string name="accessories">配件</string>
     <string name="addCart">加入購物車</string>
     <string name="remove">移除</string>
+    <string name="go_to_checkout">前往結帳</string>
 </resources>

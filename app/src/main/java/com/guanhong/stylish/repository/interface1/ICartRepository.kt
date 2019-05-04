@@ -6,4 +6,8 @@ import com.guanhong.stylish.api.DataResourceCallback
 interface ICartRepository {
     fun getCartProductList(context: Context,
                            getCartProductListCallback: DataResourceCallback.GetCartProductList)
+
+    fun deleteCartProduct(context: Context,
+                          productId: String,
+                          deleteCartProductCallback: DataResourceCallback.DeleteCartProduct)
 }

@@ -132,6 +132,10 @@ class MainActivity
         transToFragment(detail, product)
     }
 
+    override fun addToCart() {
+        cartFragment.updateCartProduct()
+    }
+
     override fun detailFragmentCreate() {
         toolbar.hide()
         bottomNavigation.hide()

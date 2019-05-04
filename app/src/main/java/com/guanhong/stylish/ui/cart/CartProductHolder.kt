@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.CartProduct
+import com.guanhong.stylish.sql.SqlDbHelper
 import com.guanhong.stylish.util.setEdge
 
 class CartProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,7 +28,7 @@ class CartProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val add = itemView.findViewById<ImageView>(R.id.addButton)
 
     interface CartProductHolderListener {
-
+        fun removeClick(productId: String)
     }
 
     fun setResource(context: Context, listener: CartProductHolderListener): RecyclerView.ViewHolder {
@@ -68,6 +69,21 @@ class CartProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 context.resources.getColor(R.color.black)
         )
 
+        add.setOnClickListener {
+            if (count.text.toString().toInt() < cartProduct.stock) {
+
+                count.text = (count.text.toString().toInt() + 1).toString()
+            }
+        }
+        subtract.setOnClickListener {
+            if (count.text.toString().toInt() > 1) {
+
+                count.text = (count.text.toString().toInt() - 1).toString()
+            }
+        }
+        remove.setOnClickListener {
+            listener.removeClick(cartProduct.id)
+        }
 
     }
 }

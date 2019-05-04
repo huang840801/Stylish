@@ -30,15 +30,16 @@ class SqlDbHelper(private val context: Context)
         const val PRODUCT_PLACE = "place"
         const val PRODUCT_NOTE = "note"
         const val PRODUCT_STORY = "story"
+        const val PRODUCT_STOCK = "stock"
         const val PRODUCT_MAIN_IMAGE = "main_image"
         const val COLORS = "colors"
         const val COLOR_NAME = "name"
         const val COLOR_CODE = "code"
         const val SIZES = "sizes"
         const val VARIANTS = "variants"
-        const val VARIANT_COLOR_CODE = "color_code"
-        const val VARIANT_SIZE = "size"
-        const val VARIANT_STOCK = "stock"
+        const val VARIANT_COLOR_CODE = "selected_color_code"
+        const val VARIANT_SIZE = "selected_size"
+        const val VARIANT_STOCK = "selected_stock"
         const val IMAGES = "images"
         const val CREATE_CART_TABLE = ("CREATE TABLE " + TABLE_NAME + " ("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -51,6 +52,7 @@ class SqlDbHelper(private val context: Context)
                 + PRODUCT_PLACE + " TEXT NOT NULL, "
                 + PRODUCT_NOTE + " TEXT NOT NULL, "
                 + PRODUCT_STORY + " TEXT NOT NULL, "
+                + PRODUCT_STOCK + " INTEGER NOT NULL, "
                 + PRODUCT_MAIN_IMAGE + " TEXT NOT NULL, "
 //                + COLORS + " TEXT NOT NULL, "
 //                + COLOR_NAME + " TEXT NOT NULL, "
@@ -79,19 +81,20 @@ class SqlDbHelper(private val context: Context)
 
     fun insert(cartProduct: CartProduct): Boolean {
 
-        Log.d("Huang", " id = " + cartProduct.id)
-        Log.d("Huang", " title = " + cartProduct.title)
-        Log.d("Huang", " description = " + cartProduct.description)
-        Log.d("Huang", " price = " + cartProduct.price)
-        Log.d("Huang", " texture = " + cartProduct.texture)
-        Log.d("Huang", " wash = " + cartProduct.wash)
-        Log.d("Huang", " place = " + cartProduct.place)
-        Log.d("Huang", " note = " + cartProduct.note)
-        Log.d("Huang", " story " + cartProduct.story)
-        Log.d("Huang", " main_image = " + cartProduct.mainImage)
+//        Log.d("Huang", " id = " + cartProduct.id)
+//        Log.d("Huang", " title = " + cartProduct.title)
+//        Log.d("Huang", " description = " + cartProduct.description)
+//        Log.d("Huang", " price = " + cartProduct.price)
+//        Log.d("Huang", " texture = " + cartProduct.texture)
+//        Log.d("Huang", " wash = " + cartProduct.wash)
+//        Log.d("Huang", " place = " + cartProduct.place)
+//        Log.d("Huang", " note = " + cartProduct.note)
+//        Log.d("Huang", " story " + cartProduct.story)
+        Log.d("Huang", " stock " + cartProduct.stock)
+//        Log.d("Huang", " main_image = " + cartProduct.mainImage)
         Log.d("Huang", " color_code = " + cartProduct.selectedColorCode)
         Log.d("Huang", " size = " + cartProduct.selectedSize)
-        Log.d("Huang", " stock = " + cartProduct.selectedStock)
+        Log.d("Huang", " selected stock = " + cartProduct.selectedStock)
 
         val db = SqlDbHelper(context).writableDatabase
         val contentValue = ContentValues()
@@ -104,7 +107,10 @@ class SqlDbHelper(private val context: Context)
         contentValue.put(PRODUCT_PLACE, cartProduct.place)
         contentValue.put(PRODUCT_NOTE, cartProduct.note)
         contentValue.put(PRODUCT_STORY, cartProduct.story)
+        contentValue.put(PRODUCT_STOCK, cartProduct.stock)
         contentValue.put(PRODUCT_MAIN_IMAGE, cartProduct.mainImage)
+        contentValue.put(PRODUCT_STORY, cartProduct.story)
+
 //        contentValue.put(COLORS, cartProduct.id)
 //        contentValue.put(SIZES, cartProduct.id)
 //        contentValue.put(IMAGES, cartProduct.images)
@@ -132,6 +138,7 @@ class SqlDbHelper(private val context: Context)
                         PRODUCT_PLACE,
                         PRODUCT_NOTE,
                         PRODUCT_STORY,
+                        PRODUCT_STOCK,
                         PRODUCT_MAIN_IMAGE,
                         VARIANT_COLOR_CODE,
                         VARIANT_SIZE,
@@ -139,23 +146,24 @@ class SqlDbHelper(private val context: Context)
                 null, null, null, null, null
         )
 
-        val cartProducts : MutableList<CartProduct>  = mutableListOf()
+        val cartProducts: MutableList<CartProduct> = mutableListOf()
 
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             val cartProduct = CartProduct()
-            cartProduct.id =cursor.getString(cursor.getColumnIndex(PRODUCT_ID))
-            cartProduct.title =cursor.getString(cursor.getColumnIndex(PRODUCT_TITLE))
-            cartProduct.description =cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION))
-            cartProduct.price =cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE))
-            cartProduct.texture =cursor.getString(cursor.getColumnIndex(PRODUCT_TEXTURE))
-            cartProduct.wash =cursor.getString(cursor.getColumnIndex(PRODUCT_WASH))
-            cartProduct.place =cursor.getString(cursor.getColumnIndex(PRODUCT_PLACE))
-            cartProduct.note =cursor.getString(cursor.getColumnIndex(PRODUCT_NOTE))
-            cartProduct.story =cursor.getString(cursor.getColumnIndex(PRODUCT_STORY))
-            cartProduct.mainImage =cursor.getString(cursor.getColumnIndex(PRODUCT_MAIN_IMAGE))
-            cartProduct.selectedColorCode =cursor.getString(cursor.getColumnIndex(VARIANT_COLOR_CODE))
-            cartProduct.selectedSize =cursor.getString(cursor.getColumnIndex(VARIANT_SIZE))
-            cartProduct.selectedStock =cursor.getInt(cursor.getColumnIndex(VARIANT_STOCK))
+            cartProduct.id = cursor.getString(cursor.getColumnIndex(PRODUCT_ID))
+            cartProduct.title = cursor.getString(cursor.getColumnIndex(PRODUCT_TITLE))
+            cartProduct.description = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION))
+            cartProduct.price = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE))
+            cartProduct.texture = cursor.getString(cursor.getColumnIndex(PRODUCT_TEXTURE))
+            cartProduct.wash = cursor.getString(cursor.getColumnIndex(PRODUCT_WASH))
+            cartProduct.place = cursor.getString(cursor.getColumnIndex(PRODUCT_PLACE))
+            cartProduct.note = cursor.getString(cursor.getColumnIndex(PRODUCT_NOTE))
+            cartProduct.story = cursor.getString(cursor.getColumnIndex(PRODUCT_STORY))
+            cartProduct.stock = cursor.getInt(cursor.getColumnIndex(PRODUCT_STOCK))
+            cartProduct.mainImage = cursor.getString(cursor.getColumnIndex(PRODUCT_MAIN_IMAGE))
+            cartProduct.selectedColorCode = cursor.getString(cursor.getColumnIndex(VARIANT_COLOR_CODE))
+            cartProduct.selectedSize = cursor.getString(cursor.getColumnIndex(VARIANT_SIZE))
+            cartProduct.selectedStock = cursor.getInt(cursor.getColumnIndex(VARIANT_STOCK))
 
             cartProducts.add(cartProduct)
         }
@@ -163,7 +171,11 @@ class SqlDbHelper(private val context: Context)
         return cartProducts
     }
 
-    fun delete(product: Product) {
+    fun delete(id: String): Int {
 
+        val where = PRODUCT_ID + "=" + id
+        val db = SqlDbHelper(context).writableDatabase
+
+        return db.delete(TABLE_NAME, where, null)
     }
 }
