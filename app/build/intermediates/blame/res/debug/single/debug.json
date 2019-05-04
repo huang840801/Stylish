@@ -320,6 +320,10 @@
         "source": "C:\\Stylish\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_checkout_product.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\item_checkout_product.xml"
+    },
+    {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.0.2.aar\\49bf162b17f7c42577de14b00ca3612c\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
@@ -486,6 +490,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_text_cursor_material.xml.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_checkout_edittext.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\checkout_edittext.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_btn_unelevated_state_list_anim.xml.flat",
@@ -2098,6 +2106,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\Stylish\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_checkout_user_info.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\item_checkout_user_info.xml"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_com_facebook_tooltip_bubble.xml.flat",

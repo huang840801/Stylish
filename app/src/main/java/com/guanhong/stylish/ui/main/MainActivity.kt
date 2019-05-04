@@ -22,6 +22,7 @@ import com.guanhong.stylish.ui.LoginDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.checkout.CheckoutFragment
+import com.guanhong.stylish.ui.checkout.CheckoutFragment.Companion.PRODUCT_COUNT
 import com.guanhong.stylish.ui.detail.DetailFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
@@ -123,9 +124,8 @@ class MainActivity
         return true
     }
 
-    override fun checkoutClick(cartProducts: List<CartProduct>) {
-        Log.d("Huang", " checkoutClick")
-        transToFragment(checkout, null, cartProducts)
+    override fun checkoutClick(cartProductList: List<CartProduct>) {
+        transToFragment(checkout, null, cartProductList)
     }
 
     override fun loginSuccess() {
@@ -205,7 +205,7 @@ class MainActivity
         }
     }
 
-    private fun transToFragment(fragmentType: String, product: Product?, cartProducts: List<CartProduct>?) {
+    private fun transToFragment(fragmentType: String, product: Product?, cartProductList: List<CartProduct>?) {
 
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
@@ -275,6 +275,7 @@ class MainActivity
                 }
                 if (product != null) {
                     val bundle = Bundle()
+
                     bundle.putSerializable("product", product)
                     detailFragment.arguments = bundle
                 }
@@ -296,8 +297,16 @@ class MainActivity
                         break
                     }
                 }
-                if (product != null) {
+                if (cartProductList != null) {
 
+                    val bundle = Bundle()
+                    bundle.putInt(PRODUCT_COUNT, cartProductList.count())
+
+                    cartProductList.forEachIndexed { index, cartProduct ->
+
+                        bundle.putSerializable("product" + index, cartProduct)
+                    }
+                    checkoutFragment.arguments = bundle
                 }
 
                 if (checkoutFragment.isAdded) {

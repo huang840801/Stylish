@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
+
 class HomeAdapter(private val listener: HomeAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
         HomeFullViewHolder.HomeFullViewHolderListener,
         HomeNormalHolder.HomeNormalHolderListener {
@@ -12,30 +13,31 @@ class HomeAdapter(private val listener: HomeAdapterListener) : RecyclerView.Adap
     private var hotList: List<Any> = listOf()
 
     companion object {
-        const val TITLE_TYPE = 1
-        const val FULL_VIEW_TYPE = 2
-        const val NORMAL_TYPE = 3
+        private const val TITLE_TYPE = 1
+        private const val FULL_VIEW_TYPE = 2
+        private const val NORMAL_TYPE = 3
     }
 
-    interface HomeAdapterListener{
+    interface HomeAdapterListener {
         fun itemClick(product: Product)
     }
+
     override fun getItemCount(): Int = hotList.count()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        when (viewType) {
+        return when (viewType) {
             TITLE_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_title, parent, false)
-                return HomeTitleHolder(view).setResource()
+                HomeTitleHolder(view).setResource()
             }
             FULL_VIEW_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_full_view, parent, false)
-                return HomeFullViewHolder(view).setResource(parent.context, this)
+                HomeFullViewHolder(view).setResource(parent.context, this)
             }
             NORMAL_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_normal, parent, false)
-                return HomeNormalHolder(view).setResource(parent.context, this)
+                HomeNormalHolder(view).setResource(parent.context, this)
             }
             else -> {
                 throw Exception("ViewType not match")

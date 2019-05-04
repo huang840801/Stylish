@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/topSeparationLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="收件資訊"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topSeparationLine" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkout_edittext"
+        android:gravity="start|center"
+        android:hint="收件人姓名"
+        android:paddingLeft="16dp"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/info" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkout_edittext"
+        android:gravity="start|center"
+        android:hint="Email"
+        android:paddingLeft="16dp"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkout_edittext"
+        android:gravity="start|center"
+        android:hint="手機號碼"
+        android:inputType="number"
+        android:paddingLeft="16dp"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/phoneExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="例 : 0912345678"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkout_edittext"
+        android:gravity="start|center"
+        android:hint="地址"
+        android:paddingLeft="16dp"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <TextView
+        android:id="@+id/deliverTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="配送時間"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <RadioButton
+        android:id="@+id/morningTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/deliverTime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="08:00 - 12:00"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintBottom_toBottomOf="@+id/morningTime"
+        app:layout_constraintStart_toEndOf="@id/morningTime"
+        app:layout_constraintTop_toTopOf="@+id/morningTime" />
+
+    <RadioButton
+        android:id="@+id/afternoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/morningTime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="14:00 - 18:00"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintBottom_toBottomOf="@+id/afternoon"
+        app:layout_constraintStart_toEndOf="@id/afternoon"
+        app:layout_constraintTop_toTopOf="@+id/afternoon" />
+
+    <RadioButton
+        android:id="@+id/whatever"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/afternoon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="不指定"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintBottom_toBottomOf="@+id/whatever"
+        app:layout_constraintStart_toEndOf="@id/whatever"
+        app:layout_constraintTop_toTopOf="@+id/whatever" />
+
+    <View
+        android:id="@+id/bottomSeparationLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/whatever" />
+
+    <TextView
+        android:id="@+id/payDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="付款詳情"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@id/bottomSeparationLine" />
+
+    <TextView
+        android:id="@+id/spinnerBackground"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkout_edittext"
+        android:gravity="start|center"
+        android:paddingLeft="16dp"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/payDetail" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/payDetail" />
+
+    <TextView
+        android:id="@+id/productTotalAmountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="商品總金額"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/productTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="NT$81000"
+        android:textColor="@color/black"
+        android:textSize="@dimen/body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/productTotalAmountText" />
+
+    <TextView
+        android:id="@+id/transportAmountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="運費總金額"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/body"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/productTotalAmountText" />
+
+    <TextView
+        android:id="@+id/transportAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NT$81000"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/transportAmountText" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/amountTotalLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="32dp"
+        android:layout_height="50dp"
+        android:background="#3f3a3a"
+        app:layout_constraintTop_toBottomOf="@+id/transportAmountText">
+
+        <TextView
+            android:id="@+id/totalAmountText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body"
+            android:gravity="start|center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/totalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="NT$81000"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body"
+            android:gravity="end|center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+    android:id="@+id/goCheckoutLayout"
+    android:layout_width="match_parent"
+    android:layout_height="82dp"
+    android:padding="16dp"
+    app:layout_constraintTop_toBottomOf="@+id/amountTotalLayout">
+
+    <TextView
+    android:id="@+id/goCheckout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown"
+    android:gravity="center"
+    android:text="@string/checkout_confirm"
+    android:textColor="@color/white"
+    android:textSize="@dimen/title"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

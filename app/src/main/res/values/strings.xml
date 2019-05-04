@@ -11,5 +11,6 @@
     <string name="addCart">加入購物車</string>
     <string name="remove">移除</string>
     <string name="go_to_checkout">前往結帳</string>
+    <string name="checkout_confirm">確定結帳</string>
     <string name="checkout">結帳</string>
 </resources>

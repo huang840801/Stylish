@@ -1,6 +1,8 @@
 package com.guanhong.stylish.model
 
-class CartProduct {
+import java.io.Serializable
+
+class CartProduct : Serializable {
     var id: String = ""
     var title: String = ""
     var description: String = ""

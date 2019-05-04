@@ -12,22 +12,23 @@ class CartAdapter(private val listener: CartAdapterListener) : RecyclerView.Adap
     private var cartProducts: List<CartProduct> = listOf()
 
     companion object {
-        const val NORMAL_TYPE = 1
+        private const val NORMAL_TYPE = 1
     }
 
-    interface CartAdapterListener{
+    interface CartAdapterListener {
         fun removeClick(productId: String)
     }
+
     override fun getItemCount(): Int = cartProducts.count()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
-            NORMAL_TYPE ->{
+            NORMAL_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cart_product, parent, false)
                 return CartProductHolder(view).setResource(parent.context, this)
             }
-            else->{
+            else -> {
                 throw Exception("ViewType not match")
             }
         }
@@ -35,8 +36,8 @@ class CartAdapter(private val listener: CartAdapterListener) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        when(holder){
-            is CartProductHolder ->{
+        when (holder) {
+            is CartProductHolder -> {
                 holder.setResult(cartProducts[position])
             }
         }

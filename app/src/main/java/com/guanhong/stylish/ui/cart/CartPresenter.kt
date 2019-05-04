@@ -21,9 +21,9 @@ class CartPresenter @Inject constructor(private val repository: CartRepository,
         view.showProgressBar()
 
         repository.getCartProductList(context, object : DataResourceCallback.GetCartProductList {
-            override fun onSuccess(cartProducts: List<CartProduct>) {
+            override fun onSuccess(cartProductList: List<CartProduct>) {
 
-                view.showCartProductList(cartProducts)
+                view.showCartProductList(cartProductList)
                 view.hideProgressBar()
             }
         })

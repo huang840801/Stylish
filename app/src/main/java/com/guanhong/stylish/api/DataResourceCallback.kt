@@ -20,7 +20,7 @@ interface DataResourceCallback {
         fun onFail()
     }
     interface GetCartProductList{
-        fun onSuccess(cartProducts: List<CartProduct>)
+        fun onSuccess(cartProductList: List<CartProduct>)
     }
     interface DeleteCartProduct{
         fun onSuccess()

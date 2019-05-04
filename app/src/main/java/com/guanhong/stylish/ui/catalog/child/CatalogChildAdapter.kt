@@ -13,7 +13,7 @@ class CatalogChildAdapter(private val listener: CatalogChildAdapterListener) :
     private var productList: List<Product> = listOf()
 
     companion object {
-        const val NORMAL_TYPE = 1
+      private  const val NORMAL_TYPE = 1
     }
 
     interface CatalogChildAdapterListener {

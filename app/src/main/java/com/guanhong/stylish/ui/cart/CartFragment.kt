@@ -24,10 +24,10 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
     private lateinit var adapter: CartAdapter
     private lateinit var listener: CartFragmentListener
 
-    private var cartProducts: List<CartProduct> = listOf()
+    private var cartProductList: List<CartProduct> = listOf()
 
     interface CartFragmentListener{
-        fun checkoutClick(cartProducts: List<CartProduct>)
+        fun checkoutClick(cartProductList: List<CartProduct>)
     }
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
@@ -68,10 +68,10 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
                 .show()
     }
 
-    override fun showCartProductList(cartProducts: List<CartProduct>) {
+    override fun showCartProductList(cartProductList: List<CartProduct>) {
 
-       this.cartProducts = cartProducts
-        adapter.onBindCartList(cartProducts)
+       this.cartProductList = cartProductList
+        adapter.onBindCartList(cartProductList)
     }
 
     override fun updateCartProductList() {
@@ -96,7 +96,7 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
 
 
     private fun goCheckout() {
-        listener.checkoutClick(cartProducts)
+        listener.checkoutClick(cartProductList)
     }
 
     private fun getCartProductList() {
