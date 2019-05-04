@@ -2,6 +2,7 @@ package com.guanhong.stylish.ui.cart
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.CartProduct
+import com.guanhong.stylish.ui.TapPayActivity
 import com.guanhong.stylish.util.hide
 import com.guanhong.stylish.util.show
 import dagger.android.support.AndroidSupportInjection
@@ -44,6 +46,9 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val intent = Intent(context, TapPayActivity::class.java)
+        startActivity(intent)
 
         adapter = CartAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

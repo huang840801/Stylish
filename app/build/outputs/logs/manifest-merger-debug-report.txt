@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-android-support:2.17] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\dagger-android-support-2.17.aar\383febcaf77a2f67842c7b07db938c9d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.42.0.aar\3ccf60536cb3b8466b736c33aff55514\AndroidManifest.xml:21:1-31:12
@@ -15,6 +15,7 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\he
 MERGED from [com.google.dagger:dagger-android:2.17] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\dagger-android-2.17.aar\c07bae7f7f7530768a876733d4297f76\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\glide-4.9.0.aar\6cc4f2789e00f4be3b7d39d9b960f9e7\AndroidManifest.xml:2:1-12:12
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\5ee483fcddf9241874e278fecbafe877\AndroidManifest.xml:2:1-11:12
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:2:1-20:12
 MERGED from [com.android.support:transition:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\42dd2749497f3107130df1f54eb5eb54\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\a6e83175516781a621a414e60023d483\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.9.0.aar\ad2c1a5ea157cf3201eeded59606f73e\AndroidManifest.xml:2:1-11:12
@@ -51,29 +52,37 @@ MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\hello\.g
 MERGED from [com.android.support:print:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\fe29c20f2799d40901f881edb43e9d5c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\ac341e7ab0c14234c5bce6ec75b48af2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\fd411627fe9e16716397a15c71c55add\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:3:5-35
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:6:5-67
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:11:5-67
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:11:5-67
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:7:5-74
+	android:name
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:7:22-72
 application
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:7:5-29:19
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:10:5-34:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\37d188ab151926001f7016b4d14e34a1\AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-android-sdk-4.42.0.aar\3ccf60536cb3b8466b736c33aff55514\AndroidManifest.xml:28:5-29:19
@@ -90,6 +99,8 @@ MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\hello\.gradle\cache
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\glide-4.9.0.aar\6cc4f2789e00f4be3b7d39d9b960f9e7\AndroidManifest.xml:10:5-20
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\5ee483fcddf9241874e278fecbafe877\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\5ee483fcddf9241874e278fecbafe877\AndroidManifest.xml:9:5-20
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:14:5-18:19
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:14:5-18:19
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.9.0.aar\ad2c1a5ea157cf3201eeded59606f73e\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.9.0.aar\ad2c1a5ea157cf3201eeded59606f73e\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-places-4.42.0.aar\8d2edfd82ede48e9250b95fd367aa9d0\AndroidManifest.xml:28:5-29:19
@@ -107,41 +118,48 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\hello\.gra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\55f1c370f47ea7771f99e72bb92843fe\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:11:9-41
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:12:9-54
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:10:9-43
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:13:9-35
+		REJECTED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:15:9-36
 	android:theme
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:14:9-40
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:18:9-40
+	tools:replace
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:11:9-44
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:8:9-32
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:12:9-32
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:16:9-18:55
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:9-22:55
 	android:value
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:18:13-52
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:13-52
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:17:13-58
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:21:13-58
+activity#com.guanhong.stylish.ui.TapPayActivity
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:9-54
+	android:name
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:19-52
 activity#com.guanhong.stylish.ui.main.MainActivity
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:9-28:20
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:25:9-33:20
 	android:windowSoftInputMode
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:13-55
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:27:13-55
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:21:13-49
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:26:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:23:13-27:29
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:17-69
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:25-66
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:26:27-74
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:31:27-74
 uses-sdk
 INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Stylish\app\src\main\AndroidManifest.xml
@@ -168,6 +186,8 @@ MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\hello\.gradle\cache
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\glide-4.9.0.aar\6cc4f2789e00f4be3b7d39d9b960f9e7\AndroidManifest.xml:6:5-8:41
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\5ee483fcddf9241874e278fecbafe877\AndroidManifest.xml:5:5-7:41
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\5ee483fcddf9241874e278fecbafe877\AndroidManifest.xml:5:5-7:41
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:7:5-9:41
+MERGED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:transition:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\42dd2749497f3107130df1f54eb5eb54\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\42dd2749497f3107130df1f54eb5eb54\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\a6e83175516781a621a414e60023d483\AndroidManifest.xml:20:5-44
@@ -266,6 +286,10 @@ activity#com.facebook.CustomTabActivity
 ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-common-4.42.0.aar\fb739d0259da08d67b6187f0770f8d82\AndroidManifest.xml:34:9-67
 	android:name
 		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-common-4.42.0.aar\fb739d0259da08d67b6187f0770f8d82\AndroidManifest.xml:34:19-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [:tpdirect] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\tpdirect.aar\88539c6c52ee950467295edd2a0fa903\AndroidManifest.xml:12:22-76
 provider#com.facebook.internal.FacebookInitProvider
 ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\hello\.gradle\caches\transforms-1\files-1.1\facebook-core-4.42.0.aar\197a668978838924b0c288e4b281c2ee\AndroidManifest.xml:39:9-42:40
 	android:authorities

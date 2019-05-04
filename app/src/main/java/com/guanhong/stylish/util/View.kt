@@ -17,7 +17,7 @@ fun View.show(){
 fun View.hide(){
     visibility = View.GONE
 }
-fun View.setEdge(edgeWidth: Int, color:Int){
+fun View.setEdge(edgeWidth: Int, color:Int ){
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         foreground = ShapeDrawable(object : Shape() {
             override fun draw(canvas: Canvas, paint: Paint) {
@@ -39,4 +39,11 @@ fun EditText.setEditable(canEditable : Boolean){
     isEnabled = canEditable
     isFocusable = canEditable
     isFocusableInTouchMode = canEditable
+}
+fun <T : View> T.click(block: (T) -> Unit) = setOnClickListener { block(it as T) }
+fun View.aaaa() : View {
+    if (visibility != View.INVISIBLE) {
+        visibility = View.INVISIBLE
+    }
+    return this
 }

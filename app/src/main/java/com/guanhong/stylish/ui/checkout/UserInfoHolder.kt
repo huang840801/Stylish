@@ -8,6 +8,10 @@ import android.view.View
 import android.widget.*
 import com.guanhong.stylish.R
 import android.widget.RadioButton
+import com.guanhong.stylish.util.aaaa
+import com.guanhong.stylish.util.click
+import com.guanhong.stylish.util.hide
+import kotlin.properties.Delegates
 
 
 class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,8 +31,9 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var totalAmountText = itemView.findViewById<TextView>(R.id.totalAmountText)
 
     private var transportMoney = 60
-    private var deliverTime = ""
+    private var deliverTime =""
     private var paymentMethod = ""
+    var count: Int by Delegates.notNull<Int>()
 
     fun setResource(context: Context): RecyclerView.ViewHolder {
         this.context = context

@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.Product
+import tech.cherri.tpdirect.api.TPDSetup
 
 class HomeNormalHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
