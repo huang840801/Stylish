@@ -59,6 +59,11 @@ class DetailFragment : BaseFragment(), AddCartFragment.AddCartFragmentListener {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        listener.detailFragmentDestroy()
+    }
+
     override fun addToCart(isSuccess: Boolean) {
         if (isSuccess) {
             resultLayout.show()
@@ -114,11 +119,6 @@ class DetailFragment : BaseFragment(), AddCartFragment.AddCartFragmentListener {
             itemView.color.setBackgroundDrawable(gd)
             colorLayout.addView(itemView)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        listener.detailFragmentDestroy()
     }
 
     fun newInstance(): DetailFragment {

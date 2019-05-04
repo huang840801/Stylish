@@ -2,10 +2,8 @@ package com.guanhong.stylish.ui.cart
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +22,13 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
     lateinit var presenter: CartPresenter
 
     private lateinit var adapter: CartAdapter
+    private lateinit var listener: CartFragmentListener
 
+    private var cartProducts: List<CartProduct> = listOf()
+
+    interface CartFragmentListener{
+        fun checkoutClick(cartProducts: List<CartProduct>)
+    }
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(activity)
@@ -66,6 +70,7 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
 
     override fun showCartProductList(cartProducts: List<CartProduct>) {
 
+       this.cartProducts = cartProducts
         adapter.onBindCartList(cartProducts)
     }
 
@@ -81,14 +86,18 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
         progressBar.hide()
     }
 
+    fun setListener(listener: CartFragmentListener) {
+        this.listener = listener
+    }
+
     fun updateCartProduct() {
         getCartProductList()
     }
 
+
     private fun goCheckout() {
-
+        listener.checkoutClick(cartProducts)
     }
-
 
     private fun getCartProductList() {
         presenter.getCartProductList(context!!)

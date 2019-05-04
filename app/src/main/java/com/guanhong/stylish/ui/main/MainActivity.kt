@@ -11,14 +11,17 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.MenuItem
 import com.guanhong.stylish.Stylish
 import com.guanhong.stylish.api.ApiHelper
 import com.guanhong.stylish.api.DataResourceCallback
+import com.guanhong.stylish.model.CartProduct
 import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.LoginDialogFragment
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
+import com.guanhong.stylish.ui.checkout.CheckoutFragment
 import com.guanhong.stylish.ui.detail.DetailFragment
 import com.guanhong.stylish.ui.home.HomeFragment
 import com.guanhong.stylish.ui.profile.ProfileFragment
@@ -39,7 +42,9 @@ class MainActivity
         LoginDialogFragment.LoginSheetDialogFragmentListener,
         CatalogFragment.CatalogFragmentListener,
         HomeFragment.HomeFragmentListener,
-        DetailFragment.DetailFragmentListener {
+        DetailFragment.DetailFragmentListener,
+        CartFragment.CartFragmentListener,
+        CheckoutFragment.CheckoutFragmentListener {
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -52,6 +57,7 @@ class MainActivity
     private lateinit var cartFragment: CartFragment
     private lateinit var profileFragment: ProfileFragment
     private lateinit var detailFragment: DetailFragment
+    private lateinit var checkoutFragment: CheckoutFragment
 
     private var loginDialogFragment: LoginDialogFragment? = null
 
@@ -60,13 +66,7 @@ class MainActivity
     private val cart = "cart"
     private val profile = "profile"
     private val detail = "detail"
-
-    companion object {
-        const val FRAGMENT_HOME = "home"
-        const val FRAGMENT_CATALOG = "catalog"
-        const val FRAGMENT_CART = "cart"
-        const val FRAGMENT_PROFILE = "profile"
-    }
+    private val checkout = "checkout"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -83,12 +83,15 @@ class MainActivity
         catalogFragment = CatalogFragment().newInstance()
         catalogFragment.setListener(this)
         cartFragment = CartFragment().newInstance()
+        cartFragment.setListener(this)
         profileFragment = ProfileFragment().newInstance()
         detailFragment = DetailFragment().newInstance()
         detailFragment.setListener(this)
+        checkoutFragment = CheckoutFragment().newInstance()
+        checkoutFragment.setListener(this)
 
-        transToFragment(home, null)
-        toolbarLogo.show()
+        transToFragment(home, null, null)
+        setToolbar("")
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
@@ -99,29 +102,30 @@ class MainActivity
 
         when (item.itemId) {
             R.id.action_home -> {
-                transToFragment(home, null)
-                toolbarTitle.hide()
-                toolbarLogo.show()
+                transToFragment(home, null, null)
+                setToolbar("")
             }
             R.id.action_catalog -> {
-                transToFragment(catalog, null)
-                setToolbarTitle(getString(R.string.catalog))
-                toolbarLogo.hide()
+                transToFragment(catalog, null, null)
+                setToolbar(getString(R.string.catalog))
             }
             R.id.action_cart -> {
-                transToFragment(cart, null)
-                setToolbarTitle(getString(R.string.cart))
-                toolbarLogo.hide()
+                transToFragment(cart, null, null)
+                setToolbar(getString(R.string.cart))
             }
 
             R.id.action_profile -> {
-                transToFragment(profile, null)
-                setToolbarTitle(getString(R.string.profile))
-                toolbarLogo.hide()
+                transToFragment(profile, null, null)
+                setToolbar(getString(R.string.profile))
                 checkLogin()
             }
         }
         return true
+    }
+
+    override fun checkoutClick(cartProducts: List<CartProduct>) {
+        Log.d("Huang", " checkoutClick")
+        transToFragment(checkout, null, cartProducts)
     }
 
     override fun loginSuccess() {
@@ -129,7 +133,7 @@ class MainActivity
     }
 
     override fun itemClick(product: Product) {
-        transToFragment(detail, product)
+        transToFragment(detail, product, null)
     }
 
     override fun addToCart() {
@@ -142,6 +146,16 @@ class MainActivity
     }
 
     override fun detailFragmentDestroy() {
+        toolbar.show()
+        bottomNavigation.show()
+    }
+
+    override fun checkoutFragmentCreate() {
+        toolbar.hide()
+        bottomNavigation.hide()
+    }
+
+    override fun checkoutFragmentDestroy() {
         toolbar.show()
         bottomNavigation.show()
     }
@@ -176,15 +190,22 @@ class MainActivity
 
     private fun updateUserData() {
         profileFragment.setUserData()
-
     }
 
-    private fun setToolbarTitle(title: String) {
-        toolbarTitle.show()
-        toolbarTitle.text = title
+    private fun setToolbar(title: String) {
+
+        if (title == "") {
+            toolbarLogo.show()
+            toolbarTitle.hide()
+
+        } else {
+            toolbarLogo.hide()
+            toolbarTitle.show()
+            toolbarTitle.text = title
+        }
     }
 
-    private fun transToFragment(fragmentType: String, product: Product?) {
+    private fun transToFragment(fragmentType: String, product: Product?, cartProducts: List<CartProduct>?) {
 
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
@@ -264,6 +285,27 @@ class MainActivity
 
                     transaction.add(R.id.container, detailFragment)
                     transaction.show(detailFragment)
+                }
+            }
+            checkout -> {
+
+                for (element in fragmentManager.fragments) {
+                    if (!element.isHidden) {
+                        transaction.hide(element)
+                        transaction.addToBackStack(null)
+                        break
+                    }
+                }
+                if (product != null) {
+
+                }
+
+                if (checkoutFragment.isAdded) {
+                    transaction.show(checkoutFragment)
+                } else {
+
+                    transaction.add(R.id.container, checkoutFragment)
+                    transaction.show(checkoutFragment)
                 }
             }
         }

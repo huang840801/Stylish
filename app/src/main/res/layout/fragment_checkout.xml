@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.main.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,7 +25,7 @@
             android:layout_gravity="start"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:src="@drawable/icons_24px_drawer" />
+            android:src="@drawable/back"  />
 
         <TextView
             android:id="@+id/toolbarTitle"
@@ -39,15 +37,8 @@
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="normal"
-            android:visibility="gone" />
+            android:text="@string/checkout"/>
 
-        <ImageView
-            android:id="@+id/toolbarLogo"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/image_logo01"
-            android:visibility="gone" />
     </android.support.v7.widget.Toolbar>
 
     <View
@@ -56,32 +47,5 @@
         android:layout_height="0.5dp"
         android:background="@color/gray"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomSeparationLine"
-        app:layout_constraintTop_toBottomOf="@+id/topSeparationLine"></FrameLayout>
-
-    <View
-        android:id="@+id/bottomSeparationLine"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/white"
-        app:itemIconTint="@color/black"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_main">
-    </android.support.design.widget.BottomNavigationView>
-
+    
 </android.support.constraint.ConstraintLayout>

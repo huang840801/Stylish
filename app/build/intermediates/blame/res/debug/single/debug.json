@@ -64,6 +64,10 @@
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.42.0.aar\\f7748d53fabd70d91c35f3f0a2e55fa9\\res\\drawable-mdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
     },
     {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_checkout.xml.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\layout\\fragment_checkout.xml"
+    },
+    {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_seek_thumb.xml.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\color\\abc_tint_seek_thumb.xml"
     },
@@ -2026,6 +2030,10 @@
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\hello\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\8f3c0d8d0ebc5d87b2d744be75151bbf\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back.png.flat",
+        "source": "C:\\Stylish\\app\\src\\main\\res\\drawable\\back.png"
     },
     {
         "merged": "C:\\Stylish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
