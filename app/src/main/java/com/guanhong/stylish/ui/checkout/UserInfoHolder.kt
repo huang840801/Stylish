@@ -1,6 +1,7 @@
 package com.guanhong.stylish.ui.checkout
 
 import android.content.Context
+import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -8,9 +9,13 @@ import android.view.View
 import android.widget.*
 import com.guanhong.stylish.R
 import android.widget.RadioButton
-import com.guanhong.stylish.util.aaaa
-import com.guanhong.stylish.util.click
 import com.guanhong.stylish.util.hide
+import com.guanhong.stylish.util.show
+import kotlinx.android.synthetic.main.activity_tappay.*
+import tech.cherri.tpdirect.api.TPDCard
+import tech.cherri.tpdirect.api.TPDServerType
+import tech.cherri.tpdirect.api.TPDSetup
+import tech.cherri.tpdirect.model.TPDStatus
 import kotlin.properties.Delegates
 
 
@@ -18,6 +23,7 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private lateinit var context: Context
 
+    private var tapPayCard: TPDCard? = null
     private var name = itemView.findViewById<EditText>(R.id.name)
     private var email = itemView.findViewById<EditText>(R.id.email)
     private var phoneNumber = itemView.findViewById<EditText>(R.id.phone)
@@ -29,11 +35,13 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var transportAmount = itemView.findViewById<TextView>(R.id.transportAmount)
     private var totalAmount = itemView.findViewById<TextView>(R.id.totalAmount)
     private var totalAmountText = itemView.findViewById<TextView>(R.id.totalAmountText)
+    private var tpdForm = itemView.findViewById<tech.cherri.tpdirect.api.TPDForm>(R.id.tpdForm)
 
     private var transportMoney = 60
-    private var deliverTime =""
+    private var deliverTime = ""
     private var paymentMethod = ""
-    var count: Int by Delegates.notNull<Int>()
+    private var tapPayPrimeKey = ""
+    private var isTapPayCanGetPrime = false
 
     fun setResource(context: Context): RecyclerView.ViewHolder {
         this.context = context
@@ -42,6 +50,7 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun setResult(productAmountTotal: Int, productNumber: Int) {
         setSpinner()
+        setTapPay()
         this.productAmountTotal.text = "NT $ " + productAmountTotal.toString()
         this.transportAmount.text = "NT $ " + transportMoney
         this.totalAmountText.text = "總計 ( " + productNumber + " 樣商品)"
@@ -72,17 +81,49 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private fun checkUserInfo() {
 
-        when {
-            name.text.toString().isBlank() -> Toast.makeText(context, "請輸入" + name.hint, Toast.LENGTH_SHORT).show()
-            email.text.toString().isBlank() -> Toast.makeText(context, "請輸入" + email.hint, Toast.LENGTH_SHORT).show()
-            phoneNumber.text.toString().isBlank() -> Toast.makeText(context, "請輸入" + phoneNumber.hint, Toast.LENGTH_SHORT).show()
-            address.text.toString().isBlank() -> Toast.makeText(context, "請輸入" + address.hint, Toast.LENGTH_SHORT).show()
-            deliverTime == "" -> Toast.makeText(context, "請選擇配送時間", Toast.LENGTH_SHORT).show()
-            paymentMethod == "" -> Toast.makeText(context, "請選擇付款方式", Toast.LENGTH_SHORT).show()
+        if (name.text.toString().isBlank()) Toast.makeText(context, "請輸入" + name.hint, Toast.LENGTH_SHORT).show()
+        else if (email.text.toString().isBlank()) Toast.makeText(context, "請輸入" + email.hint, Toast.LENGTH_SHORT).show()
+        else if (phoneNumber.text.toString().isBlank()) Toast.makeText(context, "請輸入" + phoneNumber.hint, Toast.LENGTH_SHORT).show()
+        else if (address.text.toString().isBlank()) Toast.makeText(context, "請輸入" + address.hint, Toast.LENGTH_SHORT).show()
+        else if (deliverTime == "") Toast.makeText(context, "請選擇配送時間", Toast.LENGTH_SHORT).show()
+        else if (paymentMethod == "") Toast.makeText(context, "請選擇付款方式", Toast.LENGTH_SHORT).show()
+        else if (!isTapPayCanGetPrime) Toast.makeText(context, "信用卡資訊錯誤", Toast.LENGTH_SHORT).show()
+        else {
+            getTapPayPrimeKey()
+        }
+    }
 
-            else -> {
-                checkoutConfirm()
+    private fun getTapPayPrimeKey() {
+
+        tapPayCard!!.getPrime()
+
+
+    }
+
+    private fun setTapPay() {
+
+        TPDSetup.initInstance(
+                context,
+                13576,
+                "app_qxQxKMypOWWO81WAqUnENpRyrrR92wayyxiQLlNs5DPJW1bjps7WpFoLZlWj",
+                TPDServerType.Sandbox)
+
+        tpdForm.setTextErrorColor(Color.RED)
+        tpdForm.setOnFormUpdateListener { tpdStatus ->
+
+            if (tpdStatus.cardNumberStatus != TPDStatus.STATUS_OK ||
+                    tpdStatus.expirationDateStatus != TPDStatus.STATUS_OK ||
+                    tpdStatus.ccvStatus != TPDStatus.STATUS_OK) {
             }
+
+            isTapPayCanGetPrime = tpdStatus.isCanGetPrime
+        }
+        tapPayCard = TPDCard.setup(tpdForm).onSuccessCallback { prime, _ ->
+            tapPayPrimeKey = prime
+            checkoutConfirm()
+            Log.d("Huang", " onSuccessCallback tapPayPrimeKey = " + prime)
+        }.onFailureCallback { status, _ ->
+            Log.d("Huang", " status = " + status)
         }
     }
 
@@ -102,6 +143,11 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 if (select != "付款方式") {
                     paymentMethod = select
                 }
+                if (select == "TapPay") {
+                    tpdForm.show()
+                } else {
+                    tpdForm.hide()
+                }
             }
         }
     }
@@ -114,5 +160,6 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         Log.d("Huang", " deliverTime = " + deliverTime)
         Log.d("Huang", " paymentMethod = " + paymentMethod)
         Log.d("Huang", " total = " + totalAmount.text)
+        Log.d("Huang", " tapPayPrimeKey = " + tapPayPrimeKey)
     }
 }

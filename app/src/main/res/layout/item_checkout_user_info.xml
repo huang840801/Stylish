@@ -36,6 +36,7 @@
         android:background="@drawable/checkout_edittext"
         android:gravity="start|center"
         android:hint="收件人姓名"
+        android:singleLine="true"
         android:paddingLeft="16dp"
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +53,7 @@
         android:background="@drawable/checkout_edittext"
         android:gravity="start|center"
         android:hint="Email"
+          android:singleLine="true"
         android:paddingLeft="16dp"
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +71,7 @@
         android:gravity="start|center"
         android:hint="手機號碼"
         android:inputType="number"
+          android:singleLine="true"
         android:paddingLeft="16dp"
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,6 +98,7 @@
         android:background="@drawable/checkout_edittext"
         android:gravity="start|center"
         android:hint="地址"
+          android:singleLine="true"
         android:paddingLeft="16dp"
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,39 +122,41 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/info"
         app:layout_constraintTop_toBottomOf="@+id/deliverTime">
-    <RadioButton
-        android:id="@+id/morning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="08:00 - 12:00"
-        android:paddingLeft="16dp"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/body"
-        android:buttonTint="@color/black"/>
 
-    <RadioButton
-        android:id="@+id/afternoon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="16dp"
-        android:buttonTint="@color/black"
-        android:text="14:00 - 18:00"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/body" />
+        <RadioButton
+            android:id="@+id/morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/black"
+            android:paddingLeft="16dp"
+            android:text="08:00 - 12:00"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/body" />
 
-    <RadioButton
-        android:id="@+id/anytime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:buttonTint="@color/black"
-        android:text="不指定"
-        android:paddingLeft="16dp"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/body" />
+        <RadioButton
+            android:id="@+id/afternoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/black"
+            android:paddingLeft="16dp"
+            android:text="14:00 - 18:00"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/body" />
+
+        <RadioButton
+            android:id="@+id/anytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/black"
+            android:paddingLeft="16dp"
+            android:text="不指定"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/body" />
     </RadioGroup>
+
     <View
         android:id="@+id/bottomSeparationLine"
         android:layout_width="match_parent"
@@ -198,6 +204,18 @@
         app:layout_constraintStart_toStartOf="@+id/info"
         app:layout_constraintTop_toBottomOf="@+id/payDetail" />
 
+    <tech.cherri.tpdirect.api.TPDForm
+        android:id="@+id/tpdForm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"></tech.cherri.tpdirect.api.TPDForm>
+
     <TextView
         android:id="@+id/productTotalAmountText"
         android:layout_width="wrap_content"
@@ -207,14 +225,14 @@
         android:textColor="@color/gray"
         android:textSize="@dimen/body"
         app:layout_constraintStart_toStartOf="@+id/info"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/tpdForm" />
 
     <TextView
         android:id="@+id/productTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="NT$81000"
         android:textColor="@color/black"
         android:textSize="@dimen/body"
@@ -236,9 +254,9 @@
         android:id="@+id/transportAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NT$81000"
-        android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="NT$81000"
         android:textColor="@color/black"
         android:textSize="@dimen/body"
         app:layout_constraintEnd_toEndOf="parent"
@@ -247,8 +265,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/amountTotalLayout"
         android:layout_width="match_parent"
-        android:layout_marginTop="32dp"
         android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:background="#3f3a3a"
         app:layout_constraintTop_toBottomOf="@+id/transportAmountText">
 
@@ -256,48 +274,49 @@
             android:id="@+id/totalAmountText"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/body"
-            android:gravity="start|center"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="start|center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/totalAmount"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="NT$81000"
-            android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="end|center"
+            android:text="NT$81000"
             android:textColor="@color/white"
             android:textSize="@dimen/body"
-            android:gravity="end|center"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-    android:id="@+id/checkoutConfirmLayout"
-    android:layout_width="match_parent"
-    android:layout_height="82dp"
-    android:padding="16dp"
-    app:layout_constraintTop_toBottomOf="@+id/amountTotalLayout">
+        android:id="@+id/checkoutConfirmLayout"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/amountTotalLayout">
 
-    <TextView
-    android:id="@+id/checkoutConfirm"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/brown"
-    android:gravity="center"
-    android:text="@string/checkout_confirm"
-    android:textColor="@color/white"
-    android:textSize="@dimen/title"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/checkoutConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/brown"
+            android:gravity="center"
+            android:text="@string/checkout_confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

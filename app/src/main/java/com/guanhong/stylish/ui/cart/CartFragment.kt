@@ -47,9 +47,6 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val intent = Intent(context, TapPayActivity::class.java)
-        startActivity(intent)
-
         adapter = CartAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
