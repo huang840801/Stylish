@@ -140,10 +140,10 @@ ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:20:9-22:55
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:22:13-52
 	android:name
 		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:21:13-58
-activity#com.guanhong.stylish.ui.TapPayActivity
-ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:9-54
+activity#com.guanhong.stylish.ui.TapPay
+ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:9-46
 	android:name
-		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:19-52
+		ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:24:19-44
 activity#com.guanhong.stylish.ui.main.MainActivity
 ADDED from C:\Stylish\app\src\main\AndroidManifest.xml:25:9-33:20
 	android:windowSoftInputMode

@@ -113,6 +113,8 @@ class AddCartFragment : BottomSheetDialogFragment(), AddCartContract.View {
         cartProduct.selectedColorCode = selectColor
         cartProduct.selectedSize = selectSize
         cartProduct.selectedStock = getCountEditTextInt()
+        cartProduct.colorCode = selectColor
+        cartProduct.colorName = this.product.colors.first { it.code == selectColor }.name
 
         presenter.addToCart(this.context!!, cartProduct)
     }

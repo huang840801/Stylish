@@ -55,8 +55,8 @@ class SqlDbHelper(private val context: Context)
                 + PRODUCT_STOCK + " INTEGER NOT NULL, "
                 + PRODUCT_MAIN_IMAGE + " TEXT NOT NULL, "
 //                + COLORS + " TEXT NOT NULL, "
-//                + COLOR_NAME + " TEXT NOT NULL, "
-//                + COLOR_CODE + " TEXT NOT NULL, "
+                + COLOR_CODE + " TEXT NOT NULL, "
+                + COLOR_NAME + " TEXT NOT NULL, "
 //                + SIZES + " TEXT NOT NULL, "
 //                + VARIANTS + " TEXT NOT NULL, "
 //                + IMAGES + " TEXT NOT NULL, "
@@ -110,6 +110,8 @@ class SqlDbHelper(private val context: Context)
         contentValue.put(PRODUCT_STOCK, cartProduct.stock)
         contentValue.put(PRODUCT_MAIN_IMAGE, cartProduct.mainImage)
         contentValue.put(PRODUCT_STORY, cartProduct.story)
+        contentValue.put(COLOR_CODE, cartProduct.colorCode)
+        contentValue.put(COLOR_NAME, cartProduct.colorName)
 
 //        contentValue.put(COLORS, cartProduct.id)
 //        contentValue.put(SIZES, cartProduct.id)

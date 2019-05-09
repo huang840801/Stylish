@@ -9,25 +9,27 @@ import android.view.View
 import android.widget.*
 import com.guanhong.stylish.R
 import android.widget.RadioButton
+import com.guanhong.stylish.model.Order
+import com.guanhong.stylish.model.OrderCheckout
+import com.guanhong.stylish.model.Recipient
 import com.guanhong.stylish.util.hide
 import com.guanhong.stylish.util.show
-import kotlinx.android.synthetic.main.activity_tappay.*
 import tech.cherri.tpdirect.api.TPDCard
 import tech.cherri.tpdirect.api.TPDServerType
 import tech.cherri.tpdirect.api.TPDSetup
 import tech.cherri.tpdirect.model.TPDStatus
-import kotlin.properties.Delegates
 
 
 class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private lateinit var context: Context
+    private lateinit var listener: UserInfoHolderListener
 
     private var tapPayCard: TPDCard? = null
-    private var name = itemView.findViewById<EditText>(R.id.name)
-    private var email = itemView.findViewById<EditText>(R.id.email)
-    private var phoneNumber = itemView.findViewById<EditText>(R.id.phone)
-    private var address = itemView.findViewById<EditText>(R.id.address)
+    private var nameEditText = itemView.findViewById<EditText>(R.id.nameEditText)
+    private var emailEditText = itemView.findViewById<EditText>(R.id.emailEditText)
+    private var phoneEditText = itemView.findViewById<EditText>(R.id.phoneEditText)
+    private var addressEditText = itemView.findViewById<EditText>(R.id.addressEditText)
     private var radioGroup = itemView.findViewById<RadioGroup>(R.id.radioGroup)
     private var checkoutConfirmLayout = itemView.findViewById<ConstraintLayout>(R.id.checkoutConfirmLayout)
     private var paymentSpinner = itemView.findViewById<Spinner>(R.id.spinner)
@@ -43,12 +45,18 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var tapPayPrimeKey = ""
     private var isTapPayCanGetPrime = false
 
-    fun setResource(context: Context): RecyclerView.ViewHolder {
+    interface UserInfoHolderListener {
+        fun orderCheckout(orderCheckout: OrderCheckout)
+    }
+
+    fun setResource(context: Context, listener: UserInfoHolderListener): RecyclerView.ViewHolder {
         this.context = context
+        this.listener = listener
         return this
     }
 
     fun setResult(productAmountTotal: Int, productNumber: Int) {
+
         setSpinner()
         setTapPay()
         this.productAmountTotal.text = "NT $ " + productAmountTotal.toString()
@@ -81,27 +89,21 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private fun checkUserInfo() {
 
-        if (name.text.toString().isBlank()) Toast.makeText(context, "請輸入" + name.hint, Toast.LENGTH_SHORT).show()
-        else if (email.text.toString().isBlank()) Toast.makeText(context, "請輸入" + email.hint, Toast.LENGTH_SHORT).show()
-        else if (phoneNumber.text.toString().isBlank()) Toast.makeText(context, "請輸入" + phoneNumber.hint, Toast.LENGTH_SHORT).show()
-        else if (address.text.toString().isBlank()) Toast.makeText(context, "請輸入" + address.hint, Toast.LENGTH_SHORT).show()
+        if (nameEditText.text.toString().isBlank()) Toast.makeText(context, "請輸入" + nameEditText.hint, Toast.LENGTH_SHORT).show()
+        else if (emailEditText.text.toString().isBlank()) Toast.makeText(context, "請輸入" + emailEditText.hint, Toast.LENGTH_SHORT).show()
+        else if (phoneEditText.text.toString().isBlank()) Toast.makeText(context, "請輸入" + phoneEditText.hint, Toast.LENGTH_SHORT).show()
+        else if (addressEditText.text.toString().isBlank()) Toast.makeText(context, "請輸入" + addressEditText.hint, Toast.LENGTH_SHORT).show()
         else if (deliverTime == "") Toast.makeText(context, "請選擇配送時間", Toast.LENGTH_SHORT).show()
         else if (paymentMethod == "") Toast.makeText(context, "請選擇付款方式", Toast.LENGTH_SHORT).show()
         else if (!isTapPayCanGetPrime) Toast.makeText(context, "信用卡資訊錯誤", Toast.LENGTH_SHORT).show()
         else {
-            getTapPayPrimeKey()
+            tapPayCard!!.getPrime()
         }
-    }
-
-    private fun getTapPayPrimeKey() {
-
-        tapPayCard!!.getPrime()
-
-
     }
 
     private fun setTapPay() {
 
+        Log.d("Huang", " tapPay init")
         TPDSetup.initInstance(
                 context,
                 13576,
@@ -119,11 +121,13 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             isTapPayCanGetPrime = tpdStatus.isCanGetPrime
         }
         tapPayCard = TPDCard.setup(tpdForm).onSuccessCallback { prime, _ ->
+
             tapPayPrimeKey = prime
-            checkoutConfirm()
-            Log.d("Huang", " onSuccessCallback tapPayPrimeKey = " + prime)
-        }.onFailureCallback { status, _ ->
+            orderCheckout()
+            Log.d("Huang", " onSuccessCallback   ")
+        }.onFailureCallback { status, string ->
             Log.d("Huang", " status = " + status)
+            Log.d("Huang", " string = " + string)
         }
     }
 
@@ -152,14 +156,34 @@ class UserInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    private fun checkoutConfirm() {
-        Log.d("Huang", " name = " + name.text)
-        Log.d("Huang", " email = " + email.text)
-        Log.d("Huang", " phine = " + phoneNumber.text)
-        Log.d("Huang", " address = " + address.text)
-        Log.d("Huang", " deliverTime = " + deliverTime)
-        Log.d("Huang", " paymentMethod = " + paymentMethod)
-        Log.d("Huang", " total = " + totalAmount.text)
-        Log.d("Huang", " tapPayPrimeKey = " + tapPayPrimeKey)
+    private fun orderCheckout() {
+
+//        val recipient = Recipient()
+//
+//        with(recipient) {
+//
+//            name = nameEditText.text.toString()
+//            email = emailEditText.text.toString()
+//            phone = phoneEditText.text.toString()
+//            address = addressEditText.text.toString()
+//            time = deliverTime
+//        }
+
+        val order = Order()
+        order.shipping = "delivery"
+        order.payment = "credit_card"
+//        order.subtotal = productAmountTotal.text.toString().toInt()
+        order.freight = transportMoney
+        order.total = productAmountTotal.text.toString().toInt() + transportMoney
+//        order.recipient = recipient
+
+
+//        val orderCheckout = OrderCheckout()
+//        with(orderCheckout){
+//            prime = tapPayPrimeKey
+//            this.order = order
+//        }
+
+//        listener.orderCheckout(orderCheckout)
     }
 }

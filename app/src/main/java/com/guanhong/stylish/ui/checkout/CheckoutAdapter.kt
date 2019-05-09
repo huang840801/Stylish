@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.CartProduct
+import com.guanhong.stylish.model.OrderCheckout
 
-class CheckoutAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CheckoutAdapter(private val listener: CheckoutAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+        UserInfoHolder.UserInfoHolderListener {
 
     private var cartProductList: List<CartProduct> = listOf()
     private var productAmountTotal = 0
@@ -16,6 +18,10 @@ class CheckoutAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val CART_PRODUCT_TYPE = 1
         private const val USER_INFO_TYPE = 2
 
+    }
+
+    interface CheckoutAdapterListener{
+        fun orderCheckout(orderCheckout : OrderCheckout)
     }
 
     override fun getItemCount(): Int = cartProductList.count() + 1
@@ -28,7 +34,7 @@ class CheckoutAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             USER_INFO_TYPE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_checkout_user_info, parent, false)
-                UserInfoHolder(view).setResource(parent.context)
+                UserInfoHolder(view).setResource(parent.context, this)
             }
             else -> {
                 throw Exception("ViewType not match")
@@ -54,6 +60,10 @@ class CheckoutAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         } else {
             CART_PRODUCT_TYPE
         }
+    }
+
+    override fun orderCheckout(orderCheckout: OrderCheckout) {
+        listener.orderCheckout(orderCheckout)
     }
 
     fun bindCartProductList(cartProductList: List<CartProduct>) {

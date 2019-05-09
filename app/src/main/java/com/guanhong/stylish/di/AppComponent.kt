@@ -5,6 +5,7 @@ import com.guanhong.stylish.di.add2cart.AddCartFragmentModule
 import com.guanhong.stylish.di.cart.CartFragmentModule
 import com.guanhong.stylish.di.catalog.CatalogFragmentModule
 import com.guanhong.stylish.di.catalog.CatalogPresenterModule
+import com.guanhong.stylish.di.checkout.CheckoutFragmentModule
 import com.guanhong.stylish.di.child.CatalogChildFragmentModule
 import com.guanhong.stylish.di.home.HomeFragmentModule
 import com.guanhong.stylish.di.main.MainActivityModule
@@ -20,7 +21,8 @@ import dagger.android.support.AndroidSupportInjectionModule
     CatalogFragmentModule::class,
     CatalogChildFragmentModule::class,
     AddCartFragmentModule::class,
-    CartFragmentModule::class])
+    CartFragmentModule::class,
+    CheckoutFragmentModule::class])
 interface AppComponent {
     fun inject(application: Stylish)
 }

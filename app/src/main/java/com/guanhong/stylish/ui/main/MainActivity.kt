@@ -1,6 +1,7 @@
 package com.guanhong.stylish.ui.main
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.guanhong.stylish.BaseActivity
 import com.guanhong.stylish.R
@@ -17,8 +18,10 @@ import com.guanhong.stylish.Stylish
 import com.guanhong.stylish.api.ApiHelper
 import com.guanhong.stylish.api.DataResourceCallback
 import com.guanhong.stylish.model.CartProduct
+import com.guanhong.stylish.model.OrderCheckout
 import com.guanhong.stylish.model.Product
 import com.guanhong.stylish.ui.LoginDialogFragment
+import com.guanhong.stylish.ui.TapPay
 import com.guanhong.stylish.ui.cart.CartFragment
 import com.guanhong.stylish.ui.catalog.CatalogFragment
 import com.guanhong.stylish.ui.checkout.CheckoutFragment
@@ -125,6 +128,9 @@ class MainActivity
     }
 
     override fun checkoutClick(cartProductList: List<CartProduct>) {
+
+//        val intent = Intent(this, TapPay::class.java)
+//        startActivity(intent)
         transToFragment(checkout, null, cartProductList)
     }
 

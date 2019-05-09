@@ -14,6 +14,8 @@ class CartProduct : Serializable {
     var story: String = ""
     var stock: Int = 0
     var mainImage: String = ""
+    var colorCode: String = ""
+    var colorName: String = ""
 
     var selectedColorCode = ""
     var selectedSize = ""

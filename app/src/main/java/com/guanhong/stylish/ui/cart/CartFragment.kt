@@ -2,8 +2,8 @@ package com.guanhong.stylish.ui.cart
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import com.guanhong.stylish.BaseFragment
 import com.guanhong.stylish.R
 import com.guanhong.stylish.model.CartProduct
-import com.guanhong.stylish.ui.TapPayActivity
 import com.guanhong.stylish.util.hide
 import com.guanhong.stylish.util.show
 import dagger.android.support.AndroidSupportInjection
@@ -28,9 +27,10 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
 
     private var cartProductList: List<CartProduct> = listOf()
 
-    interface CartFragmentListener{
+    interface CartFragmentListener {
         fun checkoutClick(cartProductList: List<CartProduct>)
     }
+
     override fun onAttach(activity: Activity?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(activity)
@@ -55,7 +55,12 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
             goCheckout()
         }
 
-        getCartProductList()
+        val handler = Handler()
+        handler.postDelayed({
+
+            getCartProductList()
+        }, 500)
+
     }
 
     override fun removeClick(productId: String) {
@@ -72,7 +77,7 @@ class CartFragment : BaseFragment(), CartContract.View, CartAdapter.CartAdapterL
 
     override fun showCartProductList(cartProductList: List<CartProduct>) {
 
-       this.cartProductList = cartProductList
+        this.cartProductList = cartProductList
         adapter.onBindCartList(cartProductList)
     }
 

@@ -68,12 +68,12 @@ public final class R {
     }
     public static final class id {
         public static final int bottom = 0x7f08002f;
-        public static final int end = 0x7f08006f;
-        public static final int gone = 0x7f080080;
-        public static final int invisible = 0x7f08008b;
-        public static final int left = 0x7f080091;
-        public static final int packed = 0x7f0800b6;
-        public static final int parent = 0x7f0800b9;
+        public static final int end = 0x7f080070;
+        public static final int gone = 0x7f080081;
+        public static final int invisible = 0x7f08008c;
+        public static final int left = 0x7f080092;
+        public static final int packed = 0x7f0800b7;
+        public static final int parent = 0x7f0800ba;
         public static final int percent = 0x7f0800be;
         public static final int right = 0x7f0800d2;
         public static final int spread = 0x7f080101;
